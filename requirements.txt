@@ -1,0 +1,45 @@
+# Core Dependencies
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-dotenv==1.0.1
+
+# Templates and Static Files
+jinja2==3.1.6
+aiofiles==23.2.1
+
+# Database
+sqlalchemy==2.0.36
+alembic==1.14.0
+# PostgreSQL 드라이버 (선택사항)
+# asyncpg==0.30.0
+# psycopg2-binary==2.9.10
+
+# Telegram Bot
+python-telegram-bot==21.7
+
+# Twitter API (for fetching tweet previews)
+tweepy==4.14.0
+
+# Validation and serialization
+pydantic==2.10.4
+pydantic-settings==2.7.0
+
+# Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.20
+
+# HTTP Client
+httpx==0.28.1
+aiohttp==3.11.11
+
+# Date/Time
+python-dateutil==2.9.0
+
+# Testing (optional)
+pytest==8.3.4
+pytest-asyncio==0.25.2
+
+# Development tools
+black==24.10.0
+flake8==7.1.1

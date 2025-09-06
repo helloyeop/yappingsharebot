@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>와이피의 web3 생존기</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=18">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1 class="logo">
+                        <i class="fas fa-share-alt"></i>
+와이피의 web3 생존기
+                    </h1>
+                    <p class="subtitle">텔레그램 봇을 통해 공유된 포스팅 모음</p>
+                </div>
+                <div class="stats-summary" id="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-tweets">-</span>
+                    <span class="stat-label">총 포스팅</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-users">-</span>
+                    <span class="stat-label">사용자</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-tags">-</span>
+                    <span class="stat-label">태그</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="tweets-today">-</span>
+                    <span class="stat-label">오늘</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main">
+        <div class="container">
+            <!-- 사용법 안내 섹션 -->
+            <section class="help-section card">
+                <div class="help-header">
+                    <h2><i class="fas fa-question-circle"></i> 사용법 안내</h2>
+                    <button class="help-toggle" id="help-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="help-content" id="help-content">
+                    <div class="help-grid">
+                        <div class="help-item">
+                            <div class="help-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <h3>1. 텔레그램에서 포스팅 공유하기</h3>
+                            <p>텔레그램 채팅방에서 다음 명령어를 입력하세요:</p>
+                            <code>/share https://x.com/user/status/123 #crypto 좋은 정보!</code>
+                            <ul>
+                                <li>X(구 트위터) URL은 <strong>필수</strong>입니다</li>
+                                <li>태그는 <strong>최소 1개 이상 필수</strong>입니다</li>
+                                <li>코멘트는 선택사항입니다</li>
+                                <li>사용 가능한 태그는 아래에서 확인하세요</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="help-item">
+                            <div class="help-icon">
+                                <i class="fas fa-hashtag"></i>
+                            </div>
+                            <h3>2. 태그 사용하기 (필수)</h3>
+                            <p>다음 태그 중 최소 1개를 선택해야 합니다:</p>
+                            <div class="help-tags">
+                                <span class="help-tag">#crypto</span>
+                                <span class="help-tag">#eth</span>
+                                <span class="help-tag">#btc</span>
+                                <span class="help-tag">#defi</span>
+                                <span class="help-tag">#nft</span>
+                                <span class="help-tag">#web3</span>
+                                <span class="help-tag">#trading</span>
+                                <span class="help-tag">#market</span>
+                            </div>
+                            <p class="help-note">💡 태그를 클릭하면 해당 태그로 필터링됩니다</p>
+                        </div>
+                        
+                        <div class="help-item">
+                            <div class="help-icon">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                            <h3>3. 포스팅 검색 및 필터링</h3>
+                            <ul>
+                                <li><strong>검색</strong>: 포스팅 코멘트에서 키워드 검색</li>
+                                <li><strong>사용자 필터</strong>: 특정 사용자의 포스팅만 보기</li>
+                                <li><strong>날짜 필터</strong>: 기간을 선택하여 필터링</li>
+                                <li><strong>정렬</strong>: 최신순 또는 오래된순</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="help-item">
+                            <div class="help-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>4. 포스팅 미리보기</h3>
+                            <p>각 포스팅 카드의 "포스팅 미리보기 보기" 버튼을 클릭하면:</p>
+                            <ul>
+                                <li>실제 포스팅 내용이 카드에 표시됩니다</li>
+                                <li>이미지, 동영상 등도 함께 볼 수 있습니다</li>
+                                <li>X로 이동하지 않고 바로 확인 가능합니다</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="help-commands">
+                        <h3><i class="fas fa-terminal"></i> 텔레그램 명령어 모음</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <code>/share [X URL] [#태그] [코멘트]</code>
+                                <span>포스팅 공유하기 (태그 필수)</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/mytweets</code>
+                                <span>내가 공유한 포스팅 목록 보기</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/delete [포스팅ID]</code>
+                                <span>포스팅 삭제하기</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/help</code>
+                                <span>도움말 보기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 필터 및 검색 섹션 -->
+            <section class="filters-section card">
+                <div class="filters-header">
+                    <h2><i class="fas fa-filter"></i> 필터 & 검색</h2>
+                    <button class="filter-toggle" id="filter-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="filters-content" id="filters-content">
+                    <div class="filter-row">
+                        <!-- 검색 -->
+                        <div class="filter-group">
+                            <label for="search-input">검색</label>
+                            <div class="search-container">
+                                <input type="text" id="search-input" placeholder="포스팅 내용, 코멘트 검색...">
+                                <button type="button" id="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 사용자 필터 -->
+                        <div class="filter-group">
+                            <label for="user-select">사용자</label>
+                            <select id="user-select">
+                                <option value="">전체 사용자</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 태그 필터 -->
+                        <div class="filter-group">
+                            <label for="tag-select">태그</label>
+                            <select id="tag-select">
+                                <option value="">전체 태그</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <!-- 날짜 필터 -->
+                        <div class="filter-group">
+                            <label for="date-range">기간 선택</label>
+                            <select id="date-range" class="date-range-select">
+                                <option value="">전체 기간</option>
+                                <option value="today">오늘</option>
+                                <option value="yesterday">어제</option>
+                                <option value="week">최근 7일</option>
+                                <option value="month">최근 30일</option>
+                                <option value="custom">직접 선택</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group date-custom-group" style="display: none;">
+                            <label for="date-from">시작일</label>
+                            <input type="date" id="date-from" placeholder="YYYY-MM-DD">
+                        </div>
+                        
+                        <div class="filter-group date-custom-group" style="display: none;">
+                            <label for="date-to">종료일</label>
+                            <input type="date" id="date-to" placeholder="YYYY-MM-DD">
+                        </div>
+                        
+                        <!-- 정렬 -->
+                        <div class="filter-group">
+                            <label for="sort-select">정렬</label>
+                            <select id="sort-select">
+                                <option value="newest">최신순</option>
+                                <option value="oldest">오래된순</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 초기화 버튼 -->
+                        <div class="filter-group">
+                            <label>&nbsp;</label>
+                            <button type="button" id="reset-filters" class="btn btn-secondary">
+                                <i class="fas fa-undo"></i> 초기화
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 전체 태그 섹션 -->
+            <section class="popular-tags-section card">
+                <h3><i class="fas fa-hashtag"></i> 사용 가능한 태그</h3>
+                <div class="popular-tags" id="popular-tags">
+                    <div class="loading-spinner">태그 로딩 중...</div>
+                </div>
+            </section>
+
+            <!-- 포스팅 섹션 -->
+            <section class="tweets-section card">
+                <div class="section-header">
+                    <h2><i class="fas fa-share-square"></i> 공유된 포스팅</h2>
+                    <div class="view-controls">
+                        <select id="tweets-per-page">
+                            <option value="12">12개씩</option>
+                            <option value="24">24개씩</option>
+                            <option value="48">48개씩</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- 로딩 상태 -->
+                <div class="loading-container" id="loading-container">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        포스팅 로딩 중...
+                    </div>
+                </div>
+                
+                <!-- 포스팅 그리드 -->
+                <div class="tweets-grid" id="tweets-grid">
+                    <!-- 포스팅 카드들이 여기에 동적으로 로드됩니다 -->
+                </div>
+                
+                <!-- 빈 상태 -->
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <div class="empty-content">
+                        <i class="fas fa-search"></i>
+                        <h3>검색 결과가 없습니다</h3>
+                        <p>다른 검색어나 필터를 사용해보세요.</p>
+                    </div>
+                </div>
+                
+                <!-- 페이지네이션 -->
+                <div class="pagination-container" id="pagination-container">
+                    <!-- 페이지네이션이 여기에 동적으로 생성됩니다 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 와이피의 web3 생존기 - Powered by Telegram Bot</p>
+        </div>
+    </footer>
+
+    <!-- 포스팅 미리보기 모달 -->
+    <div id="tweet-modal" class="tweet-modal">
+        <div class="tweet-modal-backdrop"></div>
+        <div class="tweet-modal-container">
+            <div class="tweet-modal-header">
+                <div class="tweet-modal-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>포스팅 미리보기</span>
+                </div>
+                <div class="tweet-modal-controls">
+                    <button type="button" class="modal-nav-btn" id="prev-tweet-btn" title="이전 포스팅">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button type="button" class="modal-nav-btn" id="next-tweet-btn" title="다음 포스팅">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button type="button" class="modal-close-btn" id="close-modal-btn" title="닫기">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="tweet-modal-content">
+                <div class="tweet-modal-info">
+                    <div class="tweet-user-info">
+                        <div class="tweet-user-avatar" id="modal-user-avatar"></div>
+                        <div class="tweet-user-details">
+                            <div class="tweet-user-name" id="modal-user-name"></div>
+                            <div class="tweet-date" id="modal-tweet-date"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="tweet-comment" id="modal-tweet-comment"></div>
+                    <div class="tweet-tags" id="modal-tweet-tags"></div>
+                    
+                    <div class="tweet-actions">
+                        <a href="#" target="_blank" class="tweet-original-link" id="modal-tweet-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            원본 포스팅 보기
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="tweet-embed-container" id="modal-tweet-embed">
+                    <div class="tweet-embed-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>포스팅을 불러오는 중...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js?v=18"></script>
+    
+    <!-- Twitter 위젯 스크립트 -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
