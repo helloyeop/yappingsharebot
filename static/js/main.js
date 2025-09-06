@@ -475,14 +475,6 @@ class Dashboard {
                         <i class="fab fa-twitter"></i>
                         원본 포스팅 보기
                     </a>
-                    <div class="tweet-actions">
-                        <button type="button" class="tweet-action" title="공유">
-                            <i class="fas fa-share"></i>
-                        </button>
-                        <button type="button" class="tweet-action" title="북마크">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
                 </footer>
             </article>
         `;

@@ -1159,7 +1159,8 @@ body.modal-open {
   transform: translateX(2px);
 }
 
-.tweet-actions {
+/* 북마크와 공유 버튼 제거됨 */
+/* .tweet-actions {
   display: flex;
   gap: 4px;
 }
@@ -1181,7 +1182,7 @@ body.modal-open {
 .tweet-action:hover {
   background: var(--bg-hover);
   color: var(--primary-color);
-}
+} */
 
 /* 빈 상태 */
 .empty-state {

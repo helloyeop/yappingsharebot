@@ -23,7 +23,7 @@ async def lifespan(app: FastAPI):
     print("🛑 서버 종료")
 
 app = FastAPI(
-    title="와이피의 web3 생존기",
+    title="웹3 생존기 infoFi",
     description="텔레그램 봇을 통한 web3 포스팅 공유 대시보드",
     version="1.0.0",
     lifespan=lifespan

@@ -125,7 +125,6 @@ class TwitterBot:
    
 🏷️ /tags - 전체 태그 목록 보기
 ➕ /addtag <태그명> - 새 태그 추가 (모든 사용자)
-➖ /removetag <태그명> - 태그 삭제 (관리자만)
    
 📋 /mytweets
    - 본인이 공유한 포스팅 목록 (최근 10개)
