@@ -83,9 +83,9 @@ class AccountData(BaseModel):
 @limiter.limit("10/minute")  # 분당 10회 제한
 async def fetch_accounts(wallet_request: WalletRequest, request: Request):
     """여러 지갑 주소의 데이터를 가져옵니다."""
-    # 로그 기록 - 민감정보 최소화
+    # 로그 기록 - 통계 분석용 전체 주소 기록
     client_ip = request.client.host
-    logging.info(f"IP: {client_ip} | Address count: {len(wallet_request.addresses)}")
+    logging.info(f"IP: {client_ip} | Addresses: {', '.join(wallet_request.addresses)}")
     
     accounts_data = []
     position_summary = {}  # 심볼별 포지션 합계
