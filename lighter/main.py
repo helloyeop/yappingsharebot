@@ -2,13 +2,17 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from typing import List, Dict, Any
 import httpx
 import json
 import logging
 from datetime import datetime
 import os
+import re
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 # 로깅 설정
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,22 +24,41 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
+# Rate limiting 설정
+limiter = Limiter(key_func=get_remote_address)
 app = FastAPI(title="Lighter Portfolio Tracker")
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# CORS 설정
+# CORS 설정 - 프로덕션 환경에 맞게 제한
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://ypab5.com", "http://localhost:3000", "http://127.0.0.1:8000"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
 # API 설정
 API_BASE_URL = "https://mainnet.zklighter.elliot.ai/api/v1/account"
+WALLET_ADDRESS_REGEX = re.compile(r'^0x[a-fA-F0-9]{40}$')
 
 class WalletRequest(BaseModel):
     addresses: List[str]
+    
+    @validator('addresses', each_item=True)
+    def validate_address(cls, v):
+        if not WALLET_ADDRESS_REGEX.match(v.strip()):
+            raise ValueError(f'Invalid wallet address format: {v}')
+        return v.strip().lower()  # 소문자로 정규화
+    
+    @validator('addresses')
+    def validate_count(cls, v):
+        if len(v) > 20:
+            raise ValueError('Maximum 20 addresses allowed')
+        if len(v) == 0:
+            raise ValueError('At least one address required')
+        return v
 
 class Position(BaseModel):
     market_id: int
@@ -57,26 +80,22 @@ class AccountData(BaseModel):
     positions: List[Dict[str, Any]]
 
 @app.post("/api/fetch_accounts")
+@limiter.limit("10/minute")  # 분당 10회 제한
 async def fetch_accounts(wallet_request: WalletRequest, request: Request):
     """여러 지갑 주소의 데이터를 가져옵니다."""
-    if len(wallet_request.addresses) > 20:
-        raise HTTPException(status_code=400, detail="최대 20개의 주소만 조회할 수 있습니다.")
-    
-    # 로그 기록
+    # 로그 기록 - 민감정보 최소화
     client_ip = request.client.host
-    logging.info(f"IP: {client_ip} | Addresses: {', '.join(wallet_request.addresses)}")
+    logging.info(f"IP: {client_ip} | Address count: {len(wallet_request.addresses)}")
     
     accounts_data = []
     position_summary = {}  # 심볼별 포지션 합계
     
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
         for address in wallet_request.addresses:
-            if not address.strip():
-                continue
-                
             try:
                 response = await client.get(
-                    f"{API_BASE_URL}?by=l1_address&value={address.strip()}"
+                    f"{API_BASE_URL}?by=l1_address&value={address}",
+                    headers={"User-Agent": "LighterTracker/1.0"}
                 )
                 response.raise_for_status()
                 data = response.json()
@@ -116,13 +135,19 @@ async def fetch_accounts(wallet_request: WalletRequest, request: Request):
                                 position_summary[symbol]["long_count"] += 1
                             else:
                                 position_summary[symbol]["short_count"] += 1
-                            position_summary[symbol]["accounts"].append(address.strip()[:8] + "...")
+                            position_summary[symbol]["accounts"].append(address[:8] + "...")
                     
                     account["positions"] = filtered_positions
                     accounts_data.append(account)
                     
+            except httpx.HTTPStatusError as e:
+                logging.error(f"HTTP error for {address[:8]}...: {e.response.status_code}")
+                continue
+            except httpx.TimeoutException:
+                logging.error(f"Timeout for {address[:8]}...")
+                continue
             except Exception as e:
-                logging.error(f"Error fetching data for {address}: {str(e)}")
+                logging.error(f"Unexpected error for {address[:8]}...: {type(e).__name__}")
                 continue
     
     return {
