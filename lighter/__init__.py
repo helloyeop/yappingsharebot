@@ -1,0 +1,1 @@
+# Lighter package initialization

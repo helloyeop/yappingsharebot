@@ -1,0 +1,80 @@
+{
+    "code": 200,
+    "total": 1,
+    "accounts": [
+      {
+        "code": 0,
+        "account_type": 0,
+        "index": 143145,
+        "l1_address": "0xC74Ef16B20c50B7337585a0a8e1eed3EDd50CF43",
+        "cancel_all_time": 0,
+        "total_order_count": 2,
+        "total_isolated_order_count": 0,
+        "pending_order_count": 2,
+        "available_balance": "0.000000",
+        "status": 0,
+        "collateral": "3.872625",
+        "account_index": 143145,
+        "name": "",
+        "description": "",
+        "can_invite": false,
+        "referral_points_percentage": "",
+        "positions": [
+          {
+            "market_id": 0,
+            "symbol": "ETH",
+            "initial_margin_fraction": "6.66",
+            "open_order_count": 1,
+            "pending_order_count": 1,
+            "position_tied_order_count": 1,
+            "sign": 1,
+            "position": "0.1735",
+            "avg_entry_price": "4002.45",
+            "position_value": "689.017080",
+            "unrealized_pnl": "-5.407995",
+            "realized_pnl": "0.000000",
+            "liquidation_price": "3779.78818443804",
+            "margin_mode": 1,
+            "allocated_margin": "46.378568"
+          },
+          {
+            "market_id": 1,
+            "symbol": "BTC",
+            "initial_margin_fraction": "2.00",
+            "open_order_count": 0,
+            "pending_order_count": 0,
+            "position_tied_order_count": 0,
+            "sign": 1,
+            "position": "0.00000",
+            "avg_entry_price": "0.0",
+            "position_value": "-0.000000",
+            "unrealized_pnl": "0.000000",
+            "realized_pnl": "0.000000",
+            "liquidation_price": "0",
+            "margin_mode": 0,
+            "allocated_margin": "0.000000"
+          },
+          {
+            "market_id": 81,
+            "symbol": "1000TOSHI",
+            "initial_margin_fraction": "33.33",
+            "open_order_count": 1,
+            "pending_order_count": 1,
+            "position_tied_order_count": 1,
+            "sign": 1,
+            "position": "104.30",
+            "avg_entry_price": "0.7345",
+            "position_value": "75.680080",
+            "unrealized_pnl": "-0.928270",
+            "realized_pnl": "0.000000",
+            "liquidation_price": "0.6115305848513902",
+            "margin_mode": 1,
+            "allocated_margin": "25.623404"
+          }
+        ],
+        "total_asset_value": "69.538331",
+        "cross_asset_value": "3.872625",
+        "shares": []
+      }
+    ]
+  }

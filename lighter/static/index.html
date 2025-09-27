@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Your Lighter Points</title>
+    <link rel="stylesheet" href="/lighter/static/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-menu">
+        <div class="nav-container">
+            <a href="/" class="nav-link">
+                <i class="fas fa-home"></i> 홈
+            </a>
+            <a href="/yapper" class="nav-link">
+                <i class="fas fa-share-alt"></i> 웹3 생존기
+            </a>
+            <a href="/lighter" class="nav-link active">
+                <i class="fas fa-wallet"></i> Lighter 트래커
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>포지션 확인</h1>
+        <p class="subtitle">Enter your EVM address to check positions</p>
+        
+        <div class="input-section">
+            <textarea 
+                id="addressInput" 
+                placeholder="지갑 주소를 입력하세요 (엔터로 구분, 최대 20개)"
+                rows="5"
+            ></textarea>
+            <button id="checkButton" class="check-button" onclick="checkPoints()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                Check Positions
+            </button>
+        </div>
+
+        <div id="results" class="results-section"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/lighter/static/script.js"></script>
+</body>
+</html>

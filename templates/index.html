@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹3 서비스 포털</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0b0f;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: rgba(20, 21, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 1.1rem;
+        }
+        
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+        
+        .service-card {
+            background: rgba(20, 21, 26, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 153, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 153, 255, 0.2);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00d4ff, #0099ff);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .service-description {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #888;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            color: #00d4ff;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .service-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #00d4ff;
+            font-weight: 500;
+            transition: gap 0.3s ease;
+        }
+        
+        .service-card:hover .service-action {
+            gap: 1rem;
+        }
+        
+        .footer {
+            background: rgba(20, 21, 26, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .main {
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-rocket"></i> 웹3 서비스 포털
+            </h1>
+            <p class="subtitle">다양한 웹3 도구와 서비스를 한 곳에서</p>
+        </div>
+    </header>
+    
+    <main class="main">
+        <div class="container">
+            <div class="services-grid">
+                <a href="/yapper" class="service-card">
+                    <div class="service-icon" style="color: #1DA1F2;">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h2 class="service-title">웹3 생존기 infoFi</h2>
+                    <p class="service-description">
+                        텔레그램 봇을 통해 X(트위터) 포스팅을 공유하고, 
+                        태그별로 분류하여 웹3 정보를 효율적으로 관리하세요.
+                    </p>
+                    <ul class="service-features">
+                        <li>텔레그램 봇으로 간편한 포스팅 공유</li>
+                        <li>태그 기반 분류 및 검색</li>
+                        <li>사용자별 포스팅 관리</li>
+                        <li>실시간 포스팅 미리보기</li>
+                    </ul>
+                    <span class="service-action">
+                        서비스 이용하기 <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
+                
+                <a href="/lighter" class="service-card">
+                    <div class="service-icon" style="color: #FFD700;">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h2 class="service-title">Lighter 포트폴리오 트래커</h2>
+                    <p class="service-description">
+                        EVM 지갑 주소를 입력하여 Lighter 거래소의 포지션을 
+                        실시간으로 확인하고 분석하세요.
+                    </p>
+                    <ul class="service-features">
+                        <li>실시간 포지션 조회</li>
+                        <li>여러 지갑 동시 확인 (최대 20개)</li>
+                        <li>포지션별 손익 계산</li>
+                        <li>레버리지 및 청산가 확인</li>
+                    </ul>
+                    <span class="service-action">
+                        서비스 이용하기 <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 웹3 서비스 포털 - Powered by FastAPI</p>
+        </div>
+    </footer>
+</body>
+</html>

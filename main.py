@@ -2,10 +2,13 @@ from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from contextlib import asynccontextmanager
 from app.db.database import create_tables
 from app.routers import tweets, users, tags, stats
 import uvicorn
+import sys
+import os
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -40,6 +43,12 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
+# Lighter 앱 설정
+sys.path.insert(0, os.path.dirname(__file__))
+from lighter.main import app as lighter_app
+app.mount("/lighter/static", StaticFiles(directory="lighter/static"), name="lighter_static")
+app.mount("/lighter", lighter_app)
+
 app.include_router(tweets.router, prefix="/api", tags=["tweets"])
 app.include_router(users.router, prefix="/api", tags=["users"])
 app.include_router(tags.router, prefix="/api", tags=["tags"])
@@ -47,6 +56,10 @@ app.include_router(stats.router, prefix="/api", tags=["stats"])
 
 @app.get("/")
 async def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/yapper")
+async def yapper_dashboard(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request})
 
 @app.get("/health")
