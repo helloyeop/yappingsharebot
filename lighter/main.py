@@ -50,7 +50,7 @@ class WalletRequest(BaseModel):
     def validate_address(cls, v):
         if not WALLET_ADDRESS_REGEX.match(v.strip()):
             raise ValueError(f'Invalid wallet address format: {v}')
-        return v.strip().lower()  # 소문자로 정규화
+        return v.strip()  # 원본 대소문자 유지
     
     @validator('addresses')
     def validate_count(cls, v):
