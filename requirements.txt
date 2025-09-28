@@ -30,6 +30,9 @@ passlib[bcrypt]==1.7.4
 python-multipart==0.0.20
 slowapi==0.1.9
 
+# Ethereum utilities
+eth-utils==5.1.0
+
 # HTTP Client
 httpx==0.28.1
 aiohttp==3.11.11

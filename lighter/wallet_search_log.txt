@@ -243,3 +243,13 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2025-09-28 08:36:46 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0xC74Ef16B20c50B7337585a0a8e1eed3EDd50CF43 "HTTP/1.1 200 OK"
 2025-09-28 08:36:47 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x29855eB076f6d4a571890a75fe8944380ca6ccC6 "HTTP/1.1 200 OK"
 2025-09-28 08:36:47 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc "HTTP/1.1 200 OK"
+2025-09-28 09:38:54 - IP: 127.0.0.1 | Addresses: 0x2618f54fee88adf9bf840a1bb722be286fbd0f15
+2025-09-28 09:38:55 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x2618f54fee88adf9bf840a1bb722be286fbd0f15 "HTTP/1.1 400 Bad Request"
+2025-09-28 09:38:55 - Error fetching data for 0x2618f54fee88adf9bf840a1bb722be286fbd0f15: Client error '400 Bad Request' for url 'https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x2618f54fee88adf9bf840a1bb722be286fbd0f15'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2025-09-28 09:39:24 - IP: 127.0.0.1 | Addresses: 0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc
+2025-09-28 09:39:25 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc "HTTP/1.1 200 OK"
+2025-09-28 09:39:29 - IP: 127.0.0.1 | Addresses: 0x2618f54fee88adf9bf840a1bb722be286fbd0f15
+2025-09-28 09:39:30 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x2618f54fee88adf9bf840a1bb722be286fbd0f15 "HTTP/1.1 400 Bad Request"
+2025-09-28 09:39:30 - Error fetching data for 0x2618f54fee88adf9bf840a1bb722be286fbd0f15: Client error '400 Bad Request' for url 'https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x2618f54fee88adf9bf840a1bb722be286fbd0f15'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
