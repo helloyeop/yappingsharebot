@@ -17,6 +17,7 @@ from slowapi.errors import RateLimitExceeded
 # 로깅 설정
 current_dir = os.path.dirname(os.path.abspath(__file__))
 log_file = os.path.join(current_dir, 'wallet_search_log.txt')
+multi_wallet_file = os.path.join(current_dir, 'multi_wallet_addresses.txt')
 logging.basicConfig(
     filename=log_file,
     level=logging.INFO,
@@ -48,9 +49,11 @@ class WalletRequest(BaseModel):
     
     @validator('addresses', each_item=True)
     def validate_address(cls, v):
-        if not WALLET_ADDRESS_REGEX.match(v.strip()):
+        # 대소문자 구분 없이 검증 (regex에 re.IGNORECASE 플래그 사용)
+        address = v.strip()
+        if not re.match(r'^0x[a-fA-F0-9]{40}$', address, re.IGNORECASE):
             raise ValueError(f'Invalid wallet address format: {v}')
-        return v.strip()  # 원본 대소문자 유지
+        return address  # 원본 형식 유지
     
     @validator('addresses')
     def validate_count(cls, v):
@@ -86,6 +89,30 @@ async def fetch_accounts(wallet_request: WalletRequest, request: Request):
     # 로그 기록 - 통계 분석용 전체 주소 기록
     client_ip = request.client.host
     logging.info(f"IP: {client_ip} | Addresses: {', '.join(wallet_request.addresses)}")
+    
+    # 다계정 지갑 주소 수집 (2개 이상의 지갑을 조회한 경우)
+    if len(wallet_request.addresses) >= 2:
+        try:
+            # 파일이 존재하는지 확인하고 인덱스 계산
+            index = 1
+            if os.path.exists(multi_wallet_file):
+                with open(multi_wallet_file, 'r', encoding='utf-8') as rf:
+                    lines = rf.readlines()
+                    if lines and lines[0].strip() == "index,addresses":
+                        index = len(lines)  # 헤더 제외한 실제 데이터 수 + 1
+                    else:
+                        index = len(lines) + 1
+            
+            # 파일에 추가
+            with open(multi_wallet_file, 'a', encoding='utf-8') as f:
+                # 파일이 비어있거나 새 파일이면 헤더 추가
+                if index == 1:
+                    f.write("index,addresses\n")
+                
+                addresses_str = ','.join(wallet_request.addresses)
+                f.write(f"{index},{addresses_str}\n")
+        except Exception as e:
+            logging.error(f"Failed to save multi-wallet data: {str(e)}")
     
     accounts_data = []
     position_summary = {}  # 심볼별 포지션 합계
