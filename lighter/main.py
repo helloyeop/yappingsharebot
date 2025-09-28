@@ -13,7 +13,6 @@ import re
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
-from eth_utils import to_checksum_address
 
 # 로깅 설정
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -54,12 +53,8 @@ class WalletRequest(BaseModel):
         address = v.strip()
         if not re.match(r'^0x[a-fA-F0-9]{40}$', address, re.IGNORECASE):
             raise ValueError(f'Invalid wallet address format: {v}')
-        # 체크섬 주소로 변환 (EIP-55 표준)
-        try:
-            return to_checksum_address(address)
-        except Exception:
-            # 변환 실패 시 원본 반환
-            return address
+        # 원본 주소 형식 유지 (API가 대소문자 구분 없이 처리)
+        return address
     
     @validator('addresses')
     def validate_count(cls, v):
