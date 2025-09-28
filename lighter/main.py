@@ -82,12 +82,19 @@ class WalletRequest(BaseModel):
         if not re.match(r'^0x[a-fA-F0-9]{40}$', address, re.IGNORECASE):
             raise ValueError(f'Invalid wallet address format: {v}')
         
-        # 체크섬 주소로 변환 시도
-        try:
-            return to_checksum_address_fallback(address)
-        except Exception:
-            # 변환 실패시 원본 반환
+        # 이미 대소문자가 섞여있으면 그대로 반환 (올바른 체크섬일 가능성)
+        if address != address.lower() and address != address.upper():
             return address
+        
+        # 모두 소문자인 경우만 체크섬 변환 시도
+        if address == address.lower():
+            try:
+                return to_checksum_address_fallback(address)
+            except Exception:
+                return address
+        
+        # 원본 반환
+        return address
     
     @validator('addresses')
     def validate_count(cls, v):
