@@ -124,13 +124,13 @@ async function checkPoints() {
         }
         
         const data = await response.json();
-        
+
         // 잔액 스냅샷 저장
         if (data.accounts && data.accounts.length > 0) {
             saveBalanceSnapshot(addresses, data.accounts);
         }
-        
-        displayResults(data.accounts, data.position_summary, addresses);
+
+        displayResults(data.accounts, data.position_summary, addresses, data.market_prices);
         
     } catch (error) {
         resultsDiv.innerHTML = `<div class="error">오류: ${error.message}</div>`;
@@ -141,22 +141,27 @@ async function checkPoints() {
 
 let currentView = 'table'; // 'table' or 'card'
 
-function displayResults(accounts, positionSummary, addresses) {
+function displayResults(accounts, positionSummary, addresses, marketPrices) {
     const resultsDiv = document.getElementById('results');
-    
+
     if (!accounts || accounts.length === 0) {
         resultsDiv.innerHTML = '<div class="error">조회된 계정이 없습니다.</div>';
         return;
     }
-    
+
     let html = '';
-    
+
     // 잔액 히스토리 차트 추가
     const history = getBalanceHistory(addresses);
     if (history.length > 1) {
         html += createBalanceHistoryChart(history, addresses);
     }
-    
+
+    // 토큰 현재가격 테이블 추가
+    if (marketPrices) {
+        html += createMarketPriceTable(marketPrices, accounts);
+    }
+
     // 계정 비교 대시보드 추가
     html += createAccountComparisonDashboard(accounts);
     
@@ -649,6 +654,117 @@ function clearHistoryData() {
             displayResults(window.lastAccountsData, window.lastPositionSummary, window.lastAddresses);
         }
     }
+}
+
+// 토큰 현재가격 테이블 생성 함수
+function createMarketPriceTable(marketPrices, accounts) {
+    // 포지션이 있는 토큰들의 유니크 리스트 생성
+    const uniqueSymbols = new Set();
+    accounts.forEach(account => {
+        account.positions.forEach(pos => {
+            uniqueSymbols.add(pos.symbol);
+        });
+    });
+
+    if (uniqueSymbols.size === 0) {
+        return '';
+    }
+
+    let html = `
+        <div class="market-price-section">
+            <h2 class="section-title">
+                <i class="fas fa-chart-line"></i> 토큰 현재가격 & 청산 리스크
+            </h2>
+
+            <div class="market-price-table-container">
+                <table class="market-price-table">
+                    <thead>
+                        <tr>
+                            <th>토큰</th>
+                            <th>현재가격</th>
+                            <th>24h 변동</th>
+                            <th>청산 리스크</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    `;
+
+    // 각 심볼별로 테이블 행 생성
+    Array.from(uniqueSymbols).sort().forEach(symbol => {
+        const price = marketPrices[symbol];
+        if (!price) return;
+
+        // 이 토큰에 대한 모든 포지션의 청산 리스크 계산
+        const liquidationRisks = [];
+        accounts.forEach(account => {
+            account.positions.forEach(pos => {
+                if (pos.symbol === symbol) {
+                    const currentPrice = pos.current_price || price.last_price;
+                    const changeToLiq = pos.change_to_liquidation;
+
+                    if (changeToLiq) {
+                        liquidationRisks.push({
+                            account: account.l1_address.substring(0, 8),
+                            change: changeToLiq,
+                            type: pos.sign === 1 ? 'Long' : 'Short',
+                            leverage: pos.leverage
+                        });
+                    }
+                }
+            });
+        });
+
+        // 가장 위험한 포지션 찾기
+        const mostRisky = liquidationRisks.reduce((min, curr) => {
+            return Math.abs(curr.change) < Math.abs(min?.change || Infinity) ? curr : min;
+        }, null);
+
+        const priceChangeClass = price.daily_change >= 0 ? 'positive' : 'negative';
+        const riskLevel = mostRisky ? getRiskLevel(Math.abs(mostRisky.change)) : '';
+
+        html += `
+            <tr>
+                <td class="symbol-cell">
+                    <strong>${symbol}</strong>
+                </td>
+                <td>$${price.last_price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td class="${priceChangeClass}">
+                    ${price.daily_change >= 0 ? '+' : ''}${price.daily_change.toFixed(2)}%
+                </td>
+                <td>
+                    ${mostRisky ? `
+                        <div class="liquidation-risk ${riskLevel}">
+                            <span class="risk-badge">${mostRisky.type} ${mostRisky.leverage}</span>
+                            <span class="risk-change">${mostRisky.change > 0 ? '+' : ''}${mostRisky.change.toFixed(2)}%</span>
+                            <span class="risk-account">(${mostRisky.account}...)</span>
+                        </div>
+                    ` : '<span class="no-position">-</span>'}
+                </td>
+            </tr>
+        `;
+    });
+
+    html += `
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="risk-legend">
+                <span class="legend-item"><span class="risk-indicator critical"></span> 위험 (±10% 이내)</span>
+                <span class="legend-item"><span class="risk-indicator warning"></span> 주의 (±20% 이내)</span>
+                <span class="legend-item"><span class="risk-indicator safe"></span> 안전 (±20% 초과)</span>
+            </div>
+        </div>
+    `;
+
+    return html;
+}
+
+// 리스크 레벨 판단 함수
+function getRiskLevel(changePercent) {
+    if (changePercent <= 10) return 'critical';
+    if (changePercent <= 20) return 'warning';
+    return 'safe';
 }
 
 // 계정 비교 대시보드 생성 함수

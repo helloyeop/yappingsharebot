@@ -43,6 +43,7 @@ app.add_middleware(
 
 # API 설정
 API_BASE_URL = "https://mainnet.zklighter.elliot.ai/api/v1/account"
+ORDERBOOK_API_URL = "https://mainnet.zklighter.elliot.ai/api/v1/orderBookDetails"
 WALLET_ADDRESS_REGEX = re.compile(r'^0x[a-fA-F0-9]{40}$')
 
 def to_checksum_address_fallback(address: str) -> str:
@@ -218,10 +219,81 @@ async def fetch_accounts(wallet_request: WalletRequest, request: Request):
                 logging.error(f"Unexpected error for {address[:8]}...: {type(e).__name__}")
                 continue
     
+    # 토큰 현재 가격 가져오기
+    market_prices = {}
+    try:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
+            price_response = await client.get(ORDERBOOK_API_URL)
+            price_response.raise_for_status()
+            price_data = price_response.json()
+
+            # 필요한 심볼들의 가격만 추출
+            for market in price_data:
+                symbol = market.get("symbol", "")
+                if symbol:
+                    market_prices[symbol] = {
+                        "last_price": float(market.get("last_trade_price", 0)),
+                        "daily_change": float(market.get("daily_price_change", 0)),
+                        "daily_high": float(market.get("daily_price_high", 0)),
+                        "daily_low": float(market.get("daily_price_low", 0))
+                    }
+    except Exception as e:
+        logging.error(f"Failed to fetch market prices: {str(e)}")
+
+    # 각 포지션에 청산까지 변동률 계산 추가
+    for account in accounts_data:
+        for pos in account.get("positions", []):
+            symbol = pos.get("symbol", "")
+            if symbol in market_prices:
+                current_price = market_prices[symbol]["last_price"]
+                liquidation_price = float(pos.get("liquidation_price", 0))
+
+                if current_price > 0 and liquidation_price > 0:
+                    # 롱/숏에 따른 청산 변동률 계산
+                    sign = pos.get("sign", 1)
+                    if sign == 1:  # Long position
+                        # 가격이 얼마나 떨어져야 청산되는지
+                        change_to_liq = ((liquidation_price - current_price) / current_price) * 100
+                    else:  # Short position
+                        # 가격이 얼마나 올라가야 청산되는지
+                        change_to_liq = ((liquidation_price - current_price) / current_price) * 100
+
+                    pos["current_price"] = current_price
+                    pos["change_to_liquidation"] = round(change_to_liq, 2)
+
     return {
         "accounts": accounts_data,
-        "position_summary": position_summary
+        "position_summary": position_summary,
+        "market_prices": market_prices
     }
+
+@app.get("/api/market_prices")
+@limiter.limit("30/minute")
+async def get_market_prices(request: Request):
+    """토큰 현재 가격을 가져옵니다."""
+    try:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
+            response = await client.get(ORDERBOOK_API_URL)
+            response.raise_for_status()
+            data = response.json()
+
+            # 필요한 정보만 추출하여 반환
+            market_prices = {}
+            for market in data:
+                symbol = market.get("symbol", "")
+                if symbol:
+                    market_prices[symbol] = {
+                        "last_price": float(market.get("last_trade_price", 0)),
+                        "daily_change": float(market.get("daily_price_change", 0)),
+                        "daily_high": float(market.get("daily_price_high", 0)),
+                        "daily_low": float(market.get("daily_price_low", 0)),
+                        "volume": float(market.get("daily_base_volume", 0))
+                    }
+
+            return {"market_prices": market_prices}
+    except Exception as e:
+        logging.error(f"Error fetching market prices: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch market prices")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_index():
