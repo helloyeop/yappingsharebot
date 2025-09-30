@@ -559,15 +559,15 @@ function createTableView(accounts) {
                 <td class="symbol-cell">${position.symbol}</td>
                 <td><span class="position-badge ${typeClass}">${positionType}</span></td>
                 <td>${parseFloat(position.position).toFixed(3)}</td>
-                <td>$${parseFloat(position.avg_entry_price).toFixed(1)}</td>
-                <td>${currentPrice ? `$${currentPrice.toFixed(1)}` : '-'}</td>
-                <td>$${parseFloat(position.position_value).toFixed(0)}</td>
+                <td>$${parseFloat(position.avg_entry_price).toFixed(3)}</td>
+                <td>${currentPrice ? `$${currentPrice.toFixed(3)}` : '-'}</td>
+                <td>$${parseFloat(position.position_value).toFixed(3)}</td>
                 <td class="pnl-cell ${pnlClass}">
-                    ${pnlSign}$${Math.abs(pnl).toFixed(0)}
+                    ${pnlSign}$${Math.abs(pnl).toFixed(3)}
                     <br><span class="pnl-percentage" style="font-size: 0.75rem;">${pnlSign}${pnlPercentage}%</span>
                 </td>
                 <td><span class="leverage-badge">${position.leverage || '1x'}</span></td>
-                <td>$${parseFloat(position.liquidation_price).toFixed(0)}</td>
+                <td>$${parseFloat(position.liquidation_price).toFixed(3)}</td>
                 <td class="liquidation-percent-cell">${formatLiquidationPercent(position)}</td>
             </tr>
         `;
