@@ -412,28 +412,54 @@ h1 {
     padding: 20px;
     margin-bottom: 20px;
     overflow-x: auto;
+    max-width: 100%;
+    position: relative;
 }
 
 .positions-table {
     width: 100%;
+    min-width: 1000px;
     border-collapse: collapse;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+}
+
+/* 테이블 컨테이너 스크롤바 스타일 */
+.table-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #1e1f2b;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #f9a826;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #f9d826;
 }
 
 .positions-table th {
     background-color: #1e1f2b;
     color: #9ca3af;
-    padding: 12px;
+    padding: 10px 6px;
     text-align: left;
     font-weight: 600;
     border-bottom: 2px solid #3a3b4d;
     position: sticky;
     top: 0;
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
 
 .positions-table td {
-    padding: 12px;
+    padding: 10px 6px;
     border-bottom: 1px solid #3a3b4d;
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
 
 .positions-table tbody tr:hover {

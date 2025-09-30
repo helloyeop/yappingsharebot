@@ -520,13 +520,13 @@ function createTableView(accounts) {
                         <th>계정</th>
                         <th>심볼</th>
                         <th>타입</th>
-                        <th>사이즈</th>
-                        <th>진입가</th>
-                        <th>현재가치</th>
+                        <th>수량</th>
+                        <th>진입</th>
+                        <th>현재</th>
+                        <th>가치</th>
                         <th>PnL</th>
-                        <th>레버리지</th>
-                        <th>청산가격</th>
-                        <th>현재가격</th>
+                        <th>레버</th>
+                        <th>청산</th>
                         <th>리스크</th>
                     </tr>
                 </thead>
@@ -553,21 +553,21 @@ function createTableView(accounts) {
                 <td>
                     <div class="account-cell">
                         <div class="account-indicator" style="background-color: ${accountColor}"></div>
-                        <span class="account-short">${position.account_address.substring(0, 8)}...</span>
+                        <span class="account-short">${position.account_address.substring(0, 6)}</span>
                     </div>
                 </td>
                 <td class="symbol-cell">${position.symbol}</td>
                 <td><span class="position-badge ${typeClass}">${positionType}</span></td>
-                <td>${parseFloat(position.position).toFixed(4)}</td>
-                <td>$${parseFloat(position.avg_entry_price).toFixed(2)}</td>
-                <td>$${parseFloat(position.position_value).toFixed(2)}</td>
+                <td>${parseFloat(position.position).toFixed(3)}</td>
+                <td>$${parseFloat(position.avg_entry_price).toFixed(1)}</td>
+                <td>${currentPrice ? `$${currentPrice.toFixed(1)}` : '-'}</td>
+                <td>$${parseFloat(position.position_value).toFixed(0)}</td>
                 <td class="pnl-cell ${pnlClass}">
-                    ${pnlSign}$${Math.abs(pnl).toFixed(2)}
-                    <span class="pnl-percentage">(${pnlSign}${pnlPercentage}%)</span>
+                    ${pnlSign}$${Math.abs(pnl).toFixed(0)}
+                    <br><span class="pnl-percentage" style="font-size: 0.75rem;">${pnlSign}${pnlPercentage}%</span>
                 </td>
                 <td><span class="leverage-badge">${position.leverage || '1x'}</span></td>
-                <td>$${parseFloat(position.liquidation_price).toFixed(2)}</td>
-                <td>${currentPrice ? `$${currentPrice.toFixed(2)}` : '-'}</td>
+                <td>$${parseFloat(position.liquidation_price).toFixed(0)}</td>
                 <td class="liquidation-percent-cell">${formatLiquidationPercent(position)}</td>
             </tr>
         `;
