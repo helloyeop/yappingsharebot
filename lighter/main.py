@@ -227,8 +227,11 @@ async def fetch_accounts(wallet_request: WalletRequest, request: Request):
             price_response.raise_for_status()
             price_data = price_response.json()
 
+            # API 응답에서 order_book_details 배열 추출
+            order_books = price_data.get("order_book_details", [])
+
             # 필요한 심볼들의 가격만 추출
-            for market in price_data:
+            for market in order_books:
                 symbol = market.get("symbol", "")
                 if symbol:
                     market_prices[symbol] = {
@@ -248,18 +251,19 @@ async def fetch_accounts(wallet_request: WalletRequest, request: Request):
                 current_price = market_prices[symbol]["last_price"]
                 liquidation_price = float(pos.get("liquidation_price", 0))
 
+                pos["current_price"] = current_price
+
                 if current_price > 0 and liquidation_price > 0:
-                    # 롱/숏에 따른 청산 변동률 계산
+                    # 롱/숏에 따른 청산 변동률 계산 (절대값으로 저장)
                     sign = pos.get("sign", 1)
                     if sign == 1:  # Long position
                         # 가격이 얼마나 떨어져야 청산되는지
-                        change_to_liq = ((liquidation_price - current_price) / current_price) * 100
+                        liquidation_percent = ((current_price - liquidation_price) / current_price) * 100
                     else:  # Short position
                         # 가격이 얼마나 올라가야 청산되는지
-                        change_to_liq = ((liquidation_price - current_price) / current_price) * 100
+                        liquidation_percent = ((liquidation_price - current_price) / current_price) * 100
 
-                    pos["current_price"] = current_price
-                    pos["change_to_liquidation"] = round(change_to_liq, 2)
+                    pos["liquidation_percent"] = round(liquidation_percent, 2)
 
     return {
         "accounts": accounts_data,
@@ -277,9 +281,12 @@ async def get_market_prices(request: Request):
             response.raise_for_status()
             data = response.json()
 
+            # API 응답에서 order_book_details 배열 추출
+            order_books = data.get("order_book_details", [])
+
             # 필요한 정보만 추출하여 반환
             market_prices = {}
-            for market in data:
+            for market in order_books:
                 symbol = market.get("symbol", "")
                 if symbol:
                     market_prices[symbol] = {
@@ -287,7 +294,7 @@ async def get_market_prices(request: Request):
                         "daily_change": float(market.get("daily_price_change", 0)),
                         "daily_high": float(market.get("daily_price_high", 0)),
                         "daily_low": float(market.get("daily_price_low", 0)),
-                        "volume": float(market.get("daily_base_volume", 0))
+                        "volume": float(market.get("daily_base_token_volume", 0))
                     }
 
             return {"market_prices": market_prices}

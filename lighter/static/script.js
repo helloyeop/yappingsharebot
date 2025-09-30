@@ -157,10 +157,8 @@ function displayResults(accounts, positionSummary, addresses, marketPrices) {
         html += createBalanceHistoryChart(history, addresses);
     }
 
-    // 토큰 현재가격 테이블 추가
-    if (marketPrices) {
-        html += createMarketPriceTable(marketPrices, accounts);
-    }
+    // marketPrices를 window에 저장하여 테이블에서 사용
+    window.currentMarketPrices = marketPrices;
 
     // 계정 비교 대시보드 추가
     html += createAccountComparisonDashboard(accounts);
@@ -528,6 +526,8 @@ function createTableView(accounts) {
                         <th>PnL</th>
                         <th>레버리지</th>
                         <th>청산가격</th>
+                        <th>현재가격</th>
+                        <th>리스크</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -540,11 +540,14 @@ function createTableView(accounts) {
         const positionType = position.sign === 1 ? 'Long' : 'Short';
         const typeClass = position.sign === 1 ? 'long' : 'short';
         const accountColor = accountColors[position.account_address];
-        
+
         // PnL 퍼센트 계산
         const positionValue = parseFloat(position.position_value);
         const pnlPercentage = positionValue > 0 ? (pnl / positionValue * 100).toFixed(2) : '0.00';
-        
+
+        // 현재가격 추가
+        const currentPrice = position.current_price || 0;
+
         html += `
             <tr>
                 <td>
@@ -564,6 +567,8 @@ function createTableView(accounts) {
                 </td>
                 <td><span class="leverage-badge">${position.leverage || '1x'}</span></td>
                 <td>$${parseFloat(position.liquidation_price).toFixed(2)}</td>
+                <td>${currentPrice ? `$${currentPrice.toFixed(2)}` : '-'}</td>
+                <td class="liquidation-percent-cell">${formatLiquidationPercent(position)}</td>
             </tr>
         `;
     });
@@ -656,115 +661,30 @@ function clearHistoryData() {
     }
 }
 
-// 토큰 현재가격 테이블 생성 함수
-function createMarketPriceTable(marketPrices, accounts) {
-    // 포지션이 있는 토큰들의 유니크 리스트 생성
-    const uniqueSymbols = new Set();
-    accounts.forEach(account => {
-        account.positions.forEach(pos => {
-            uniqueSymbols.add(pos.symbol);
-        });
-    });
 
-    if (uniqueSymbols.size === 0) {
-        return '';
+// 청산 퍼센트 포맷 함수
+function formatLiquidationPercent(position) {
+    if (position.liquidation_percent === null || position.liquidation_percent === undefined) {
+        return '-';
     }
 
-    let html = `
-        <div class="market-price-section">
-            <h2 class="section-title">
-                <i class="fas fa-chart-line"></i> 토큰 현재가격 & 청산 리스크
-            </h2>
+    const percent = Math.abs(position.liquidation_percent);
+    const sign = position.sign;
 
-            <div class="market-price-table-container">
-                <table class="market-price-table">
-                    <thead>
-                        <tr>
-                            <th>토큰</th>
-                            <th>현재가격</th>
-                            <th>24h 변동</th>
-                            <th>청산 리스크</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-    `;
+    // 색상 결정 (10% 미만 위험, 10-20% 경고, 20% 이상 안전)
+    let colorClass = '';
+    if (percent < 10) {
+        colorClass = 'danger';
+    } else if (percent < 20) {
+        colorClass = 'warning';
+    } else {
+        colorClass = 'safe';
+    }
 
-    // 각 심볼별로 테이블 행 생성
-    Array.from(uniqueSymbols).sort().forEach(symbol => {
-        const price = marketPrices[symbol];
-        if (!price) return;
+    // 방향 표시 (Long은 ↓, Short는 ↑)
+    const direction = sign === 1 ? '↓' : '↑';
 
-        // 이 토큰에 대한 모든 포지션의 청산 리스크 계산
-        const liquidationRisks = [];
-        accounts.forEach(account => {
-            account.positions.forEach(pos => {
-                if (pos.symbol === symbol) {
-                    const currentPrice = pos.current_price || price.last_price;
-                    const changeToLiq = pos.change_to_liquidation;
-
-                    if (changeToLiq) {
-                        liquidationRisks.push({
-                            account: account.l1_address.substring(0, 8),
-                            change: changeToLiq,
-                            type: pos.sign === 1 ? 'Long' : 'Short',
-                            leverage: pos.leverage
-                        });
-                    }
-                }
-            });
-        });
-
-        // 가장 위험한 포지션 찾기
-        const mostRisky = liquidationRisks.reduce((min, curr) => {
-            return Math.abs(curr.change) < Math.abs(min?.change || Infinity) ? curr : min;
-        }, null);
-
-        const priceChangeClass = price.daily_change >= 0 ? 'positive' : 'negative';
-        const riskLevel = mostRisky ? getRiskLevel(Math.abs(mostRisky.change)) : '';
-
-        html += `
-            <tr>
-                <td class="symbol-cell">
-                    <strong>${symbol}</strong>
-                </td>
-                <td>$${price.last_price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                <td class="${priceChangeClass}">
-                    ${price.daily_change >= 0 ? '+' : ''}${price.daily_change.toFixed(2)}%
-                </td>
-                <td>
-                    ${mostRisky ? `
-                        <div class="liquidation-risk ${riskLevel}">
-                            <span class="risk-badge">${mostRisky.type} ${mostRisky.leverage}</span>
-                            <span class="risk-change">${mostRisky.change > 0 ? '+' : ''}${mostRisky.change.toFixed(2)}%</span>
-                            <span class="risk-account">(${mostRisky.account}...)</span>
-                        </div>
-                    ` : '<span class="no-position">-</span>'}
-                </td>
-            </tr>
-        `;
-    });
-
-    html += `
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="risk-legend">
-                <span class="legend-item"><span class="risk-indicator critical"></span> 위험 (±10% 이내)</span>
-                <span class="legend-item"><span class="risk-indicator warning"></span> 주의 (±20% 이내)</span>
-                <span class="legend-item"><span class="risk-indicator safe"></span> 안전 (±20% 초과)</span>
-            </div>
-        </div>
-    `;
-
-    return html;
-}
-
-// 리스크 레벨 판단 함수
-function getRiskLevel(changePercent) {
-    if (changePercent <= 10) return 'critical';
-    if (changePercent <= 20) return 'warning';
-    return 'safe';
+    return `<span class="liquidation-percent ${colorClass}">${direction} ${percent.toFixed(1)}%</span>`;
 }
 
 // 계정 비교 대시보드 생성 함수

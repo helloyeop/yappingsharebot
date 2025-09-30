@@ -793,6 +793,48 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* 청산 퍼센트 스타일 */
+.liquidation-percent-cell {
+    font-weight: 600;
+    font-family: monospace;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.liquidation-percent.danger {
+    color: #ef4444;
+}
+
+.liquidation-percent.warning {
+    color: #f59e0b;
+}
+
+.liquidation-percent.safe {
+    color: #10b981;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.risk-badge-small.critical {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.risk-badge-small.warning {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.risk-badge-small.safe {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
 /* 토큰 현재가격 테이블 스타일 */
 .market-price-section {
     background-color: #252635;

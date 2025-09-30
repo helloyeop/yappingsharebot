@@ -253,3 +253,17 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2025-09-28 09:39:30 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x2618f54fee88adf9bf840a1bb722be286fbd0f15 "HTTP/1.1 400 Bad Request"
 2025-09-28 09:39:30 - Error fetching data for 0x2618f54fee88adf9bf840a1bb722be286fbd0f15: Client error '400 Bad Request' for url 'https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x2618f54fee88adf9bf840a1bb722be286fbd0f15'
 For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2025-09-30 08:49:21 - IP: 127.0.0.1 | Addresses: 0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc
+2025-09-30 08:49:21 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc "HTTP/1.1 200 OK"
+2025-09-30 08:49:22 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/orderBookDetails "HTTP/1.1 200 OK"
+2025-09-30 08:49:22 - Failed to fetch market prices: 'str' object has no attribute 'get'
+2025-09-30 08:49:30 - IP: 127.0.0.1 | Addresses: 0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc
+2025-09-30 08:49:30 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc "HTTP/1.1 200 OK"
+2025-09-30 08:49:30 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/orderBookDetails "HTTP/1.1 200 OK"
+2025-09-30 08:49:30 - Failed to fetch market prices: 'str' object has no attribute 'get'
+2025-09-30 08:54:12 - IP: 127.0.0.1 | Addresses: 0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc
+2025-09-30 08:54:12 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc "HTTP/1.1 200 OK"
+2025-09-30 08:54:13 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/orderBookDetails "HTTP/1.1 200 OK"
+2025-09-30 08:54:19 - IP: 127.0.0.1 | Addresses: 0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc
+2025-09-30 08:54:20 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/account?by=l1_address&value=0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc "HTTP/1.1 200 OK"
+2025-09-30 08:54:20 - HTTP Request: GET https://mainnet.zklighter.elliot.ai/api/v1/orderBookDetails "HTTP/1.1 200 OK"
