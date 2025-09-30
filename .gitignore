@@ -31,6 +31,10 @@ Thumbs.db
 *.log
 logs/
 
+# Lighter 프로젝트 로그 및 데이터
+lighter/wallet_search_log.txt
+lighter/multi_wallet_addresses.txt
+
 # Distribution
 dist/
 build/
