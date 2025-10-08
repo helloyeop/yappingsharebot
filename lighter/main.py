@@ -435,7 +435,7 @@ async def read_index(request: Request, code: str = None):
             <div class="logo">🔐 Lighter</div>
             <div class="subtitle">Portfolio Tracker Access</div>
 
-            <form method="get" action="/">
+            <form method="get" action="/lighter">
                 <div class="form-group">
                     <label for="code">Access Code</label>
                     <input type="text" id="code" name="code" required autofocus>
