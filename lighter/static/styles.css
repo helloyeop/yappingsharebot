@@ -26,19 +26,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-}
-
-.nav-left {
-    display: flex;
     gap: 1rem;
-}
-
-.nav-right {
-    display: flex;
-    gap: 0.5rem;
+    padding: 1rem;
 }
 
 .nav-link {
@@ -67,15 +56,6 @@ body {
     font-size: 1.1rem;
 }
 
-.logout-btn {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
-}
-
-.logout-btn:hover {
-    background-color: rgba(239, 68, 68, 0.2);
-    color: #dc2626;
-}
 
 .container {
     width: 100%;

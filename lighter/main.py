@@ -1,8 +1,7 @@
-from fastapi import FastAPI, HTTPException, Request, Form, Depends
+from fastapi import FastAPI, HTTPException, Request, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
-from starlette.middleware.sessions import SessionMiddleware
 from pydantic import BaseModel, validator
 from typing import List, Dict, Any
 import httpx
@@ -15,7 +14,6 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import hashlib
-import secrets
 
 # 로깅 설정
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -29,16 +27,13 @@ logging.basicConfig(
 )
 
 # 접근 코드 설정 (환경변수 또는 기본값)
-ACCESS_CODE = os.getenv("LIGHTER_ACCESS_CODE", "1point500$")  # 원하는 코드로 변경 가능
+ACCESS_CODE = os.getenv("LIGHTER_ACCESS_CODE", "lighter2024")  # 원하는 코드로 변경 가능
 
 # Rate limiting 설정
 limiter = Limiter(key_func=get_remote_address)
 app = FastAPI(title="Lighter Portfolio Tracker")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
-
-# 세션 미들웨어 추가 (접근 제어용)
-app.add_middleware(SessionMiddleware, secret_key=secrets.token_hex(32))
 
 # CORS 설정 - 프로덕션 환경에 맞게 제한
 app.add_middleware(
@@ -81,19 +76,10 @@ def to_checksum_address_fallback(address: str) -> str:
             result += char
     return result
 
-# 인증 의존성 함수
-def require_authentication(request: Request):
-    """접근 코드 인증이 필요한 엔드포인트에 사용"""
-    if not request.session.get("authenticated"):
-        # HTML 요청인 경우 로그인 페이지로 리다이렉션
-        if "text/html" in request.headers.get("accept", ""):
-            return RedirectResponse(url="/login", status_code=302)
-        # API 요청인 경우 401 에러 반환
-        raise HTTPException(status_code=401, detail="Access code required")
-    return True
-
-class LoginRequest(BaseModel):
-    access_code: str
+# 간단한 접근 코드 체크 함수
+def check_access_code(code: str) -> bool:
+    """접근 코드 확인"""
+    return code == ACCESS_CODE
 
 class WalletRequest(BaseModel):
     addresses: List[str]
@@ -148,7 +134,7 @@ class AccountData(BaseModel):
 
 @app.post("/api/fetch_accounts")
 @limiter.limit("10/minute")  # 분당 10회 제한
-async def fetch_accounts(wallet_request: WalletRequest, request: Request, authenticated: bool = Depends(require_authentication)):
+async def fetch_accounts(wallet_request: WalletRequest, request: Request):
     """여러 지갑 주소의 데이터를 가져옵니다."""
     # 로그 기록 - 통계 분석용 전체 주소 기록
     client_ip = request.client.host
@@ -295,7 +281,7 @@ async def fetch_accounts(wallet_request: WalletRequest, request: Request, authen
 
 @app.get("/api/market_prices")
 @limiter.limit("30/minute")
-async def get_market_prices(request: Request, authenticated: bool = Depends(require_authentication)):
+async def get_market_prices(request: Request):
     """토큰 현재 가격을 가져옵니다."""
     try:
         async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
@@ -324,10 +310,21 @@ async def get_market_prices(request: Request, authenticated: bool = Depends(requ
         logging.error(f"Error fetching market prices: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch market prices")
 
-@app.get("/login", response_class=HTMLResponse)
-async def login_page():
-    """로그인 페이지를 반환합니다."""
-    return """
+@app.get("/", response_class=HTMLResponse)
+async def read_index(request: Request, code: str = None):
+    """메인 페이지를 반환합니다. 코드가 필요한 경우 입력 폼 표시"""
+
+    # 코드가 제공되고 올바른 경우 메인 페이지 반환
+    if code and check_access_code(code):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        html_path = os.path.join(current_dir, "static", "index.html")
+        with open(html_path, "r", encoding="utf-8") as f:
+            return f.read()
+
+    # 코드가 없거나 틀린 경우 로그인 폼 표시
+    error_msg = "잘못된 접근 코드입니다." if code else ""
+
+    return f"""
     <!DOCTYPE html>
     <html lang="ko">
     <head>
@@ -335,13 +332,13 @@ async def login_page():
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lighter Portfolio Tracker - Access</title>
         <style>
-            * {
+            * {{
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
-            }
+            }}
 
-            body {
+            body {{
                 background: linear-gradient(135deg, #1e1f2b 0%, #2d2e3f 100%);
                 color: white;
                 font-family: 'Arial', sans-serif;
@@ -349,9 +346,9 @@ async def login_page():
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            }
+            }}
 
-            .login-container {
+            .login-container {{
                 background: rgba(46, 47, 63, 0.9);
                 padding: 40px;
                 border-radius: 20px;
@@ -359,34 +356,34 @@ async def login_page():
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
                 text-align: center;
                 min-width: 400px;
-            }
+            }}
 
-            .logo {
+            .logo {{
                 font-size: 2.5rem;
                 font-weight: bold;
                 color: #f9a826;
                 margin-bottom: 10px;
-            }
+            }}
 
-            .subtitle {
+            .subtitle {{
                 color: #9ca3af;
                 margin-bottom: 30px;
                 font-size: 1.1rem;
-            }
+            }}
 
-            .form-group {
+            .form-group {{
                 margin-bottom: 20px;
                 text-align: left;
-            }
+            }}
 
-            label {
+            label {{
                 display: block;
                 margin-bottom: 8px;
                 color: #e4e4e7;
                 font-weight: 500;
-            }
+            }}
 
-            input[type="password"] {
+            input[type="text"] {{
                 width: 100%;
                 padding: 15px;
                 border: 1px solid rgba(255, 255, 255, 0.2);
@@ -395,15 +392,15 @@ async def login_page():
                 color: white;
                 font-size: 1rem;
                 transition: border-color 0.3s ease;
-            }
+            }}
 
-            input[type="password"]:focus {
+            input[type="text"]:focus {{
                 outline: none;
                 border-color: #f9a826;
                 box-shadow: 0 0 0 2px rgba(249, 168, 38, 0.2);
-            }
+            }}
 
-            .btn {
+            .btn {{
                 width: 100%;
                 padding: 15px;
                 background: #f9a826;
@@ -414,23 +411,23 @@ async def login_page():
                 font-weight: 600;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
-            }
+            }}
 
-            .btn:hover {
+            .btn:hover {{
                 background: #f9d826;
-            }
+            }}
 
-            .error {
+            .error {{
                 color: #ef4444;
                 margin-top: 10px;
                 font-size: 0.9rem;
-            }
+            }}
 
-            .footer {
+            .footer {{
                 margin-top: 30px;
                 color: #6b7280;
                 font-size: 0.9rem;
-            }
+            }}
         </style>
     </head>
     <body>
@@ -438,74 +435,24 @@ async def login_page():
             <div class="logo">🔐 Lighter</div>
             <div class="subtitle">Portfolio Tracker Access</div>
 
-            <form id="loginForm" method="post" action="/auth">
+            <form method="get" action="/">
                 <div class="form-group">
-                    <label for="access_code">Access Code</label>
-                    <input type="password" id="access_code" name="access_code" required autofocus>
+                    <label for="code">Access Code</label>
+                    <input type="text" id="code" name="code" required autofocus>
                 </div>
 
                 <button type="submit" class="btn">Enter</button>
             </form>
 
-            <div id="error" class="error" style="display: none;"></div>
+            {f'<div class="error">{error_msg}</div>' if error_msg else ''}
 
             <div class="footer">
                 Enter your access code to continue
             </div>
         </div>
-
-        <script>
-            document.getElementById('loginForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                const formData = new FormData(e.target);
-                const errorDiv = document.getElementById('error');
-
-                try {
-                    const response = await fetch('/auth', {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    if (response.ok) {
-                        window.location.href = '/';
-                    } else {
-                        const data = await response.json();
-                        errorDiv.textContent = data.detail || 'Invalid access code';
-                        errorDiv.style.display = 'block';
-                    }
-                } catch (error) {
-                    errorDiv.textContent = 'Connection error. Please try again.';
-                    errorDiv.style.display = 'block';
-                }
-            });
-        </script>
     </body>
     </html>
     """
-
-@app.post("/auth")
-async def authenticate(request: Request, access_code: str = Form(...)):
-    """접근 코드 인증 처리"""
-    if access_code == ACCESS_CODE:
-        request.session["authenticated"] = True
-        return RedirectResponse(url="/", status_code=302)
-    else:
-        raise HTTPException(status_code=401, detail="Invalid access code")
-
-@app.get("/logout")
-async def logout(request: Request):
-    """로그아웃 처리"""
-    request.session.clear()
-    return RedirectResponse(url="/login", status_code=302)
-
-@app.get("/", response_class=HTMLResponse)
-async def read_index(request: Request, authenticated: bool = Depends(require_authentication)):
-    """메인 페이지를 반환합니다. (인증 필요)"""
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    html_path = os.path.join(current_dir, "static", "index.html")
-    with open(html_path, "r", encoding="utf-8") as f:
-        return f.read()
 
 # Static 파일 서빙
 current_dir = os.path.dirname(os.path.abspath(__file__))
