@@ -1,0 +1,424 @@
+{
+  "timestamp": "2025-10-03T22:18:50.683867",
+  "token_prices": {},
+  "allocations": [
+    {
+      "wallet": "0xC74Ef16B20c50B7337585a0a8e1eed3EDd50CF43",
+      "wallet_index": 1,
+      "collateral": 23.93,
+      "group": "SMALL",
+      "positions": [
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "size": 12.36,
+          "leverage": 2,
+          "entry_time": "2025-10-05T14:25:50.683396"
+        }
+      ],
+      "total_margin_used": 12.36
+    },
+    {
+      "wallet": "0xe67b28750153E7D95Ff001b2557EbA6C5F56092c",
+      "wallet_index": 2,
+      "collateral": 24.17,
+      "group": "SMALL",
+      "positions": [
+        {
+          "token": "STBL",
+          "side": "SHORT",
+          "size": 13.47,
+          "leverage": 3,
+          "entry_time": "2025-10-04T14:20:50.683424"
+        }
+      ],
+      "total_margin_used": 13.47
+    },
+    {
+      "wallet": "0xe5909A5817325797f8Ed2C4c079f6c78B5E9bfa2",
+      "wallet_index": 4,
+      "collateral": 8.77,
+      "group": "SMALL",
+      "positions": [
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "size": 4.88,
+          "leverage": 3,
+          "entry_time": "2025-10-04T01:40:50.683430"
+        }
+      ],
+      "total_margin_used": 4.88
+    },
+    {
+      "wallet": "0x349f3e1db87719CE7c1013AE7b7Feb70053A1c2f",
+      "wallet_index": 8,
+      "collateral": 3.83,
+      "group": "SMALL",
+      "positions": [
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "size": 2.4,
+          "leverage": 2,
+          "entry_time": "2025-10-04T12:40:50.683436"
+        }
+      ],
+      "total_margin_used": 2.4
+    },
+    {
+      "wallet": "0x4007Fb7b726111153C07db0B3f1f561F8bad9853",
+      "wallet_index": 17,
+      "collateral": 10.0,
+      "group": "SMALL",
+      "positions": [
+        {
+          "token": "0G",
+          "side": "LONG",
+          "size": 5.84,
+          "leverage": 3,
+          "entry_time": "2025-10-04T21:20:50.683441"
+        }
+      ],
+      "total_margin_used": 5.84
+    },
+    {
+      "wallet": "0xE81261c93c99b4DCE06068adC0C2a7fFE425732f",
+      "wallet_index": 7,
+      "collateral": 76.98,
+      "group": "MEDIUM",
+      "positions": [
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "size": 26.88,
+          "leverage": 4,
+          "entry_time": "2025-10-03T23:07:50.683447"
+        },
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "size": 17.93,
+          "leverage": 3,
+          "entry_time": "2025-10-04T00:47:50.683451"
+        }
+      ],
+      "total_margin_used": 44.81
+    },
+    {
+      "wallet": "0x25dcd95A7a6D56eA4e781C7586306a4d9768227C",
+      "wallet_index": 10,
+      "collateral": 58.5,
+      "group": "MEDIUM",
+      "positions": [
+        {
+          "token": "STBL",
+          "side": "SHORT",
+          "size": 23.22,
+          "leverage": 4,
+          "entry_time": "2025-10-04T01:33:50.683456"
+        },
+        {
+          "token": "0G",
+          "side": "LONG",
+          "size": 16.58,
+          "leverage": 2,
+          "entry_time": "2025-10-04T04:10:50.683460"
+        }
+      ],
+      "total_margin_used": 39.8
+    },
+    {
+      "wallet": "0x51a35979C49354B2eD87F86eb1A679815753c331",
+      "wallet_index": 11,
+      "collateral": 34.46,
+      "group": "MEDIUM",
+      "positions": [
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "size": 12.15,
+          "leverage": 5,
+          "entry_time": "2025-10-04T04:59:50.683464"
+        },
+        {
+          "token": "2Z",
+          "side": "SHORT",
+          "size": 8.21,
+          "leverage": 4,
+          "entry_time": "2025-10-04T06:45:50.683467"
+        }
+      ],
+      "total_margin_used": 20.36
+    },
+    {
+      "wallet": "0x5979857213bb73233aDBf029a7454DFb00A33539",
+      "wallet_index": 13,
+      "collateral": 57.04,
+      "group": "MEDIUM",
+      "positions": [
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "size": 18.9,
+          "leverage": 4,
+          "entry_time": "2025-10-04T07:26:50.683472"
+        },
+        {
+          "token": "EDEN",
+          "side": "LONG",
+          "size": 12.66,
+          "leverage": 4,
+          "entry_time": "2025-10-04T09:30:50.683493"
+        }
+      ],
+      "total_margin_used": 31.56
+    },
+    {
+      "wallet": "0x06d9681C02E2b5182C3489477f4b09D38f3959B2",
+      "wallet_index": 16,
+      "collateral": 76.54,
+      "group": "MEDIUM",
+      "positions": [
+        {
+          "token": "0G",
+          "side": "LONG",
+          "size": 27.23,
+          "leverage": 5,
+          "entry_time": "2025-10-04T10:26:50.683510"
+        },
+        {
+          "token": "APEX",
+          "side": "SHORT",
+          "size": 21.6,
+          "leverage": 2,
+          "entry_time": "2025-10-04T13:02:50.683515"
+        }
+      ],
+      "total_margin_used": 48.83
+    },
+    {
+      "wallet": "0x7878AE8C54227440293a0BB83b63F39DC24A0899",
+      "wallet_index": 3,
+      "collateral": 120.58,
+      "group": "LARGE",
+      "positions": [
+        {
+          "token": "0G",
+          "side": "LONG",
+          "size": 39.16,
+          "leverage": 5,
+          "entry_time": "2025-10-04T23:06:50.683525"
+        },
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "size": 26.93,
+          "leverage": 5,
+          "entry_time": "2025-10-06T09:33:50.683533"
+        },
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "size": 19.3,
+          "leverage": 3,
+          "entry_time": "2025-10-04T19:14:50.683540"
+        }
+      ],
+      "total_margin_used": 85.39
+    },
+    {
+      "wallet": "0x29855eB076f6d4a571890a75fe8944380ca6ccC6",
+      "wallet_index": 5,
+      "collateral": 106.28,
+      "group": "LARGE",
+      "positions": [
+        {
+          "token": "EDEN",
+          "side": "SHORT",
+          "size": 30.25,
+          "leverage": 5,
+          "entry_time": "2025-10-04T08:29:50.683553"
+        },
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "size": 23.36,
+          "leverage": 5,
+          "entry_time": "2025-10-04T10:25:50.683559"
+        },
+        {
+          "token": "0G",
+          "side": "SHORT",
+          "size": 16.06,
+          "leverage": 3,
+          "entry_time": "2025-10-04T09:36:50.683565"
+        }
+      ],
+      "total_margin_used": 69.67
+    },
+    {
+      "wallet": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "wallet_index": 6,
+      "collateral": 186.61,
+      "group": "LARGE",
+      "positions": [
+        {
+          "token": "2Z",
+          "side": "LONG",
+          "size": 58.01,
+          "leverage": 5,
+          "entry_time": "2025-10-04T20:38:50.683572"
+        },
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "size": 40.5,
+          "leverage": 5,
+          "entry_time": "2025-10-05T14:45:50.683578"
+        }
+      ],
+      "total_margin_used": 98.50999999999999
+    },
+    {
+      "wallet": "0x497506194d1Bc5D02597142D5A79D9198200118E",
+      "wallet_index": 9,
+      "collateral": 152.03,
+      "group": "LARGE",
+      "positions": [
+        {
+          "token": "APEX",
+          "side": "SHORT",
+          "size": 43.56,
+          "leverage": 6,
+          "entry_time": "2025-10-06T10:50:50.683584"
+        },
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "size": 37.43,
+          "leverage": 5,
+          "entry_time": "2025-10-05T03:52:50.683590"
+        }
+      ],
+      "total_margin_used": 80.99000000000001
+    },
+    {
+      "wallet": "0xa9B5be1fc07E0538A5278beedB3A45bb3fbDC893",
+      "wallet_index": 12,
+      "collateral": 103.36,
+      "group": "LARGE",
+      "positions": [
+        {
+          "token": "FF",
+          "side": "LONG",
+          "size": 30.04,
+          "leverage": 4,
+          "entry_time": "2025-10-06T21:19:50.683597"
+        },
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "size": 23.46,
+          "leverage": 5,
+          "entry_time": "2025-10-05T20:51:50.683602"
+        },
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "size": 15.66,
+          "leverage": 3,
+          "entry_time": "2025-10-04T07:01:50.683608"
+        }
+      ],
+      "total_margin_used": 69.16
+    },
+    {
+      "wallet": "0x9d1cA39386cb3D35c66674aA0Ce41e3403731241",
+      "wallet_index": 14,
+      "collateral": 100.72,
+      "group": "LARGE",
+      "positions": [
+        {
+          "token": "EDEN",
+          "side": "SHORT",
+          "size": 29.49,
+          "leverage": 5,
+          "entry_time": "2025-10-05T13:15:50.683615"
+        },
+        {
+          "token": "2Z",
+          "side": "LONG",
+          "size": 23.18,
+          "leverage": 4,
+          "entry_time": "2025-10-05T22:52:50.683620"
+        }
+      ],
+      "total_margin_used": 52.67
+    },
+    {
+      "wallet": "0xFD930dB05F90885DEd7Db693057E5B899b528b2b",
+      "wallet_index": 15,
+      "collateral": 100.71,
+      "group": "LARGE",
+      "positions": [
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "size": 30.17,
+          "leverage": 4,
+          "entry_time": "2025-10-05T21:20:50.683627"
+        },
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "size": 23.89,
+          "leverage": 3,
+          "entry_time": "2025-10-05T05:59:50.683632"
+        },
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "size": 14.31,
+          "leverage": 3,
+          "entry_time": "2025-10-03T23:25:50.683638"
+        }
+      ],
+      "total_margin_used": 68.37
+    }
+  ],
+  "metrics": {
+    "long_exposure": {
+      "APEX": 233.07000000000002,
+      "ZEC": 75.39,
+      "0G": 382.63,
+      "EDEN": 50.64,
+      "STBL": 471.61,
+      "2Z": 382.77,
+      "FF": 120.16
+    },
+    "short_exposure": {
+      "STBL": 133.29,
+      "FF": 471.34000000000003,
+      "2Z": 32.84,
+      "APEX": 304.56,
+      "EDEN": 298.7,
+      "0G": 48.17999999999999,
+      "ZEC": 188.97000000000003
+    },
+    "net_exposure": {
+      "FF": -351.18000000000006,
+      "0G": 334.45,
+      "EDEN": -248.06,
+      "2Z": 349.92999999999995,
+      "APEX": -71.48999999999998,
+      "ZEC": -113.58000000000003,
+      "STBL": 338.32000000000005
+    },
+    "total_net_delta": 238.38999999999993,
+    "total_long": 1716.2700000000002,
+    "total_short": 1477.88,
+    "delta_ratio": 1.161305383387014,
+    "delta_neutral_score": 76.161
+  }
+}

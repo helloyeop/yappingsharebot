@@ -1,0 +1,142 @@
+{
+  "timestamp": "2025-10-04T15:19:13.799990",
+  "groups": {
+    "GROUP_A": {
+      "wallets": [
+        {
+          "num": 9,
+          "addr": "0x497506194d1Bc5D02597142D5A79D9198200118E"
+        },
+        {
+          "num": 12,
+          "addr": "0xa9B5be1fc07E0538A5278beedB3A45bb3fbDC893"
+        },
+        {
+          "num": 13,
+          "addr": "0x5979857213bb73233aDBf029a7454DFb00A33539"
+        }
+      ],
+      "stats": {
+        "wallet_count": 3,
+        "total_collateral": 359.868786,
+        "total_available": 38.736038066666644,
+        "total_exposure": 995.6605390000001,
+        "group_delta": 0.12594008107014065,
+        "wallets": [
+          9,
+          12,
+          13
+        ]
+      }
+    },
+    "GROUP_B": {
+      "wallets": [
+        {
+          "num": 6,
+          "addr": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc"
+        },
+        {
+          "num": 11,
+          "addr": "0x51a35979C49354B2eD87F86eb1A679815753c331"
+        },
+        {
+          "num": 2,
+          "addr": "0xe67b28750153E7D95Ff001b2557EbA6C5F56092c"
+        },
+        {
+          "num": 4,
+          "addr": "0xe5909A5817325797f8Ed2C4c079f6c78B5E9bfa2"
+        },
+        {
+          "num": 15,
+          "addr": "0xFD930dB05F90885DEd7Db693057E5B899b528b2b"
+        }
+      ],
+      "stats": {
+        "wallet_count": 5,
+        "total_collateral": 365.28873799999997,
+        "total_available": 26.36886210000001,
+        "total_exposure": 1038.031223,
+        "group_delta": 0.22060922824476548,
+        "wallets": [
+          6,
+          11,
+          2,
+          4,
+          15
+        ]
+      }
+    },
+    "GROUP_C": {
+      "wallets": [
+        {
+          "num": 3,
+          "addr": "0x7878AE8C54227440293a0BB83b63F39DC24A0899"
+        },
+        {
+          "num": 1,
+          "addr": "0xC74Ef16B20c50B7337585a0a8e1eed3EDd50CF43"
+        },
+        {
+          "num": 16,
+          "addr": "0x06d9681C02E2b5182C3489477f4b09D38f3959B2"
+        }
+      ],
+      "stats": {
+        "wallet_count": 3,
+        "total_collateral": 260.968626,
+        "total_available": 39.91610993333333,
+        "total_exposure": 649.658703,
+        "group_delta": -0.009758685554005492,
+        "wallets": [
+          3,
+          1,
+          16
+        ]
+      }
+    },
+    "GROUP_D": {
+      "wallets": [
+        {
+          "num": 5,
+          "addr": "0x29855eB076f6d4a571890a75fe8944380ca6ccC6"
+        },
+        {
+          "num": 7,
+          "addr": "0xE81261c93c99b4DCE06068adC0C2a7fFE425732f"
+        },
+        {
+          "num": 8,
+          "addr": "0x349f3e1db87719CE7c1013AE7b7Feb70053A1c2f"
+        },
+        {
+          "num": 10,
+          "addr": "0x25dcd95A7a6D56eA4e781C7586306a4d9768227C"
+        },
+        {
+          "num": 14,
+          "addr": "0x9d1cA39386cb3D35c66674aA0Ce41e3403731241"
+        }
+      ],
+      "stats": {
+        "wallet_count": 5,
+        "total_collateral": 336.427591,
+        "total_available": 1.2595761,
+        "total_exposure": 1016.5129159999999,
+        "group_delta": -0.025181529518312647,
+        "wallets": [
+          5,
+          7,
+          8,
+          10,
+          14
+        ]
+      }
+    }
+  },
+  "balance_scores": {
+    "collateral_balance": 58.33930650222014,
+    "available_balance": 84.45338343112238,
+    "delta_balance": 91.50366068900396
+  }
+}

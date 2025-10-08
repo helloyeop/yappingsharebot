@@ -1,0 +1,534 @@
+{
+  "timestamp": "2025-10-03T22:06:29.692518",
+  "total_stats": {
+    "total_wallets": 16,
+    "total_collateral": 1234.506894,
+    "total_pnl": 94.70397500000001,
+    "long_exposure": {
+      "Unknown": 0.0
+    },
+    "short_exposure": {
+      "Unknown": 0.0
+    },
+    "net_exposure": {
+      "Unknown": 0.0
+    },
+    "wallet_analysis": [
+      {
+        "index": 1,
+        "address": "0xC74Ef16B20c50B7337585a0a8e1eed3EDd50CF43",
+        "balance": 23.932948,
+        "collateral": 23.932948,
+        "positions": [],
+        "total_collateral": 23.932948,
+        "total_pnl": 0,
+        "long_value": 0,
+        "short_value": 0,
+        "net_delta": 0
+      },
+      {
+        "index": 2,
+        "address": "0xe67b28750153E7D95Ff001b2557EbA6C5F56092c",
+        "balance": 0.0,
+        "collateral": 24.168888,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "LONG",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.23099,
+            "pnl": -4.80522,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 2.38
+          }
+        ],
+        "total_collateral": 24.168888,
+        "total_pnl": -4.80522,
+        "long_value": 0.0,
+        "short_value": 0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 3,
+        "address": "0x7878AE8C54227440293a0BB83b63F39DC24A0899",
+        "balance": 30.157899,
+        "collateral": 120.577168,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "LONG",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 2.9964,
+            "pnl": 39.774205,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 26.36
+          }
+        ],
+        "total_collateral": 120.577168,
+        "total_pnl": 39.774205,
+        "long_value": 0.0,
+        "short_value": 0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 4,
+        "address": "0xe5909A5817325797f8Ed2C4c079f6c78B5E9bfa2",
+        "balance": 8.767433,
+        "collateral": 8.767433,
+        "positions": [],
+        "total_collateral": 8.767433,
+        "total_pnl": 0,
+        "long_value": 0,
+        "short_value": 0,
+        "net_delta": 0
+      },
+      {
+        "index": 5,
+        "address": "0x29855eB076f6d4a571890a75fe8944380ca6ccC6",
+        "balance": 83.021367,
+        "collateral": 106.277691,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "LONG",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 1.7081,
+            "pnl": 17.122452,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 55.82
+          }
+        ],
+        "total_collateral": 106.277691,
+        "total_pnl": 17.122452,
+        "long_value": 0.0,
+        "short_value": 0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 6,
+        "address": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+        "balance": 72.950743,
+        "collateral": 186.613084,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "SHORT",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.7879,
+            "pnl": -4.302171,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 119.72
+          },
+          {
+            "token": "Unknown",
+            "side": "SHORT",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.27843,
+            "pnl": 38.781763,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 70.75
+          },
+          {
+            "token": "Unknown",
+            "side": "LONG",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.17425,
+            "pnl": -20.981557,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 0.0
+          }
+        ],
+        "total_collateral": 186.613084,
+        "total_pnl": 13.498034999999998,
+        "long_value": 0.0,
+        "short_value": 0.0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 7,
+        "address": "0xE81261c93c99b4DCE06068adC0C2a7fFE425732f",
+        "balance": 6.288927,
+        "collateral": 76.976394,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "LONG",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.7879,
+            "pnl": -2.913366,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 20.45
+          }
+        ],
+        "total_collateral": 76.976394,
+        "total_pnl": -2.913366,
+        "long_value": 0.0,
+        "short_value": 0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 8,
+        "address": "0x349f3e1db87719CE7c1013AE7b7Feb70053A1c2f",
+        "balance": 3.834066,
+        "collateral": 3.834066,
+        "positions": [],
+        "total_collateral": 3.834066,
+        "total_pnl": 0,
+        "long_value": 0,
+        "short_value": 0,
+        "net_delta": 0
+      },
+      {
+        "index": 9,
+        "address": "0x497506194d1Bc5D02597142D5A79D9198200118E",
+        "balance": 155.064378,
+        "collateral": 152.027276,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "SHORT",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.17425,
+            "pnl": 50.842812,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 101.26
+          }
+        ],
+        "total_collateral": 152.027276,
+        "total_pnl": 50.842812,
+        "long_value": 0,
+        "short_value": 0.0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 10,
+        "address": "0x25dcd95A7a6D56eA4e781C7586306a4d9768227C",
+        "balance": 0.0,
+        "collateral": 58.501797,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "SHORT",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 2.9964,
+            "pnl": -11.043584,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 8.38
+          },
+          {
+            "token": "Unknown",
+            "side": "SHORT",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 1.7081,
+            "pnl": -5.093307,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 16.58
+          }
+        ],
+        "total_collateral": 58.501797,
+        "total_pnl": -16.136891,
+        "long_value": 0,
+        "short_value": 0.0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 11,
+        "address": "0x51a35979C49354B2eD87F86eb1A679815753c331",
+        "balance": 34.461947,
+        "collateral": 34.461947,
+        "positions": [],
+        "total_collateral": 34.461947,
+        "total_pnl": 0,
+        "long_value": 0,
+        "short_value": 0,
+        "net_delta": 0
+      },
+      {
+        "index": 12,
+        "address": "0xa9B5be1fc07E0538A5278beedB3A45bb3fbDC893",
+        "balance": 60.534996,
+        "collateral": 103.356535,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "SHORT",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.7879,
+            "pnl": 2.263932,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 48.55
+          }
+        ],
+        "total_collateral": 103.356535,
+        "total_pnl": 2.263932,
+        "long_value": 0,
+        "short_value": 0.0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 13,
+        "address": "0x5979857213bb73233aDBf029a7454DFb00A33539",
+        "balance": 57.038817,
+        "collateral": 57.038817,
+        "positions": [],
+        "total_collateral": 57.038817,
+        "total_pnl": 0,
+        "long_value": 0,
+        "short_value": 0,
+        "net_delta": 0
+      },
+      {
+        "index": 14,
+        "address": "0x9d1cA39386cb3D35c66674aA0Ce41e3403731241",
+        "balance": 68.489478,
+        "collateral": 100.716839,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "SHORT",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 1.7081,
+            "pnl": -5.137054,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 52.29
+          }
+        ],
+        "total_collateral": 100.716839,
+        "total_pnl": -5.137054,
+        "long_value": 0,
+        "short_value": 0.0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 15,
+        "address": "0xFD930dB05F90885DEd7Db693057E5B899b528b2b",
+        "balance": 3.777279,
+        "collateral": 100.7139,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "LONG",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.007035,
+            "pnl": 3.42381,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 5.91
+          }
+        ],
+        "total_collateral": 100.7139,
+        "total_pnl": 3.42381,
+        "long_value": 0.0,
+        "short_value": 0,
+        "net_delta": 0.0
+      },
+      {
+        "index": 16,
+        "address": "0x06d9681C02E2b5182C3489477f4b09D38f3959B2",
+        "balance": 0.0,
+        "collateral": 76.542111,
+        "positions": [
+          {
+            "token": "Unknown",
+            "side": "LONG",
+            "amount": 0.0,
+            "entry": 0.0,
+            "current": 0.7879,
+            "pnl": -3.22874,
+            "pnl_percent": 0.0,
+            "leverage": 0.0,
+            "liquidation_percent": 16.28
+          }
+        ],
+        "total_collateral": 76.542111,
+        "total_pnl": -3.22874,
+        "long_value": 0.0,
+        "short_value": 0,
+        "net_delta": 0.0
+      }
+    ],
+    "total_long": 0.0,
+    "total_short": 0.0,
+    "total_net_delta": 0.0,
+    "delta_ratio": Infinity
+  },
+  "correlation_metrics": {
+    "position_overlap": {
+      "Wallet_2_Wallet_3": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_2_Wallet_5": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_2_Wallet_6": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_2_Wallet_7": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_2_Wallet_15": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_2_Wallet_16": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_3_Wallet_5": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_3_Wallet_6": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_3_Wallet_7": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_3_Wallet_15": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_3_Wallet_16": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_5_Wallet_6": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_5_Wallet_7": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_5_Wallet_15": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_5_Wallet_16": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_6_Wallet_7": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_6_Wallet_9": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_6_Wallet_10": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_6_Wallet_12": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_6_Wallet_14": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_6_Wallet_15": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_6_Wallet_16": {
+        "overlapping_positions": 1,
+        "similarity_score": 0.5
+      },
+      "Wallet_7_Wallet_15": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_7_Wallet_16": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_9_Wallet_10": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_9_Wallet_12": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_9_Wallet_14": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_10_Wallet_12": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_10_Wallet_14": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_12_Wallet_14": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      },
+      "Wallet_15_Wallet_16": {
+        "overlapping_positions": 1,
+        "similarity_score": 1.0
+      }
+    },
+    "similar_strategies": [],
+    "timing_patterns": []
+  },
+  "suggestions": [
+    {
+      "type": "DIVERSIFICATION",
+      "action": "Redistribute positions across more wallets",
+      "details": [
+        {
+          "wallet": "Wallet_6",
+          "concentration": "15.1%"
+        }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "type": "DECORRELATION",
+      "action": "Vary position sizes, timing, and token selection across wallets",
+      "details": [
+        "Use different leverage levels for similar positions",
+        "Stagger entry/exit times by several hours or days",
+        "Mix different token pairs even for similar strategies",
+        "Use varying position sizes (avoid round numbers)"
+      ],
+      "priority": "HIGH"
+    }
+  ]
+}

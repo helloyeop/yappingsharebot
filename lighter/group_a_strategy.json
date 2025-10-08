@@ -1,0 +1,166 @@
+{
+  "timestamp": "2025-10-04T15:27:26.006337",
+  "group": "GROUP_A",
+  "wallet_analysis": {
+    "9": {
+      "address": "0x497506194d1Bc5D02597142D5A79D9198200118E",
+      "collateral": 199.822168,
+      "used_margin": 157.90957120000002,
+      "available_margin": 21.930379999999985,
+      "current_positions": [
+        {
+          "token": "0G",
+          "side": "SHORT",
+          "amount": 34.61,
+          "exposure": 106.67494199999999,
+          "margin": 35.537548
+        },
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "amount": 376.4,
+          "exposure": 98.473768,
+          "margin": 32.82333466666667
+        },
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "amount": 27.7,
+          "exposure": 57.460879999999996,
+          "margin": 11.51766
+        },
+        {
+          "token": "2Z",
+          "side": "SHORT",
+          "amount": 126.9,
+          "exposure": 66.282408,
+          "margin": 22.094136000000002
+        },
+        {
+          "token": "EDEN",
+          "side": "LONG",
+          "amount": 317.6,
+          "exposure": 112.138208,
+          "margin": 37.364581333333334
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "amount": 0.692,
+          "exposure": 92.89753999999999,
+          "margin": 18.572311199999998
+        }
+      ],
+      "token_exposure": {
+        "0G": 106.67494199999999,
+        "STBL": 98.473768,
+        "APEX": 57.460879999999996,
+        "2Z": 66.282408,
+        "EDEN": 112.138208,
+        "ZEC": 92.89753999999999
+      },
+      "long_exposure": 360.970396,
+      "short_exposure": 172.95735,
+      "delta_bias": 0.3521320017708913
+    },
+    "12": {
+      "address": "0xa9B5be1fc07E0538A5278beedB3A45bb3fbDC893",
+      "collateral": 102.956848,
+      "used_margin": 80.56286146666666,
+      "available_margin": 12.09830173333333,
+      "current_positions": [
+        {
+          "token": "0G",
+          "side": "SHORT",
+          "amount": 21.68,
+          "exposure": 66.822096,
+          "margin": 22.261024000000003
+        },
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "amount": 43.3,
+          "exposure": 89.82151999999999,
+          "margin": 18.00414
+        },
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "amount": 421.0,
+          "exposure": 82.4318,
+          "margin": 27.468846666666668
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "amount": 0.478,
+          "exposure": 64.16911,
+          "margin": 12.828850800000001
+        }
+      ],
+      "token_exposure": {
+        "0G": 66.822096,
+        "APEX": 89.82151999999999,
+        "FF": 82.4318,
+        "ZEC": 64.16911
+      },
+      "long_exposure": 153.99063,
+      "short_exposure": 149.253896,
+      "delta_bias": 0.015620179735742411
+    },
+    "13": {
+      "address": "0x5979857213bb73233aDBf029a7454DFb00A33539",
+      "collateral": 57.08977,
+      "used_margin": 46.487968466666665,
+      "available_margin": 4.892824533333339,
+      "current_positions": [
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "amount": 297.3,
+          "exposure": 58.21134,
+          "margin": 19.397834
+        },
+        {
+          "token": "EDEN",
+          "side": "SHORT",
+          "amount": 154.3,
+          "exposure": 54.480244000000006,
+          "margin": 18.152880666666665
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "amount": 0.333,
+          "exposure": 44.703585000000004,
+          "margin": 8.9372538
+        }
+      ],
+      "token_exposure": {
+        "FF": 58.21134,
+        "EDEN": 54.480244000000006,
+        "ZEC": 44.703585000000004
+      },
+      "long_exposure": 44.703585000000004,
+      "short_exposure": 112.691584,
+      "delta_bias": -0.4319573429855398
+    }
+  },
+  "hedge_orders": [],
+  "delta_analysis": {
+    "current_long": 559.6646109999999,
+    "current_short": 434.90283,
+    "new_long": 0,
+    "new_short": 0,
+    "total_long": 559.6646109999999,
+    "total_short": 434.90283,
+    "delta": 0.12544325890515445,
+    "delta_score": 87.45567410948456
+  },
+  "summary": {
+    "total_hedges": 0,
+    "total_margin": 0,
+    "total_notional": 0,
+    "final_delta_score": 87.45567410948456
+  }
+}

@@ -1,7 +1,8 @@
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request, Form, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.sessions import SessionMiddleware
 from pydantic import BaseModel, validator
 from typing import List, Dict, Any
 import httpx
@@ -14,6 +15,7 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import hashlib
+import secrets
 
 # 로깅 설정
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -26,11 +28,17 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
+# 접근 코드 설정 (환경변수 또는 기본값)
+ACCESS_CODE = os.getenv("LIGHTER_ACCESS_CODE", "1point500$")  # 원하는 코드로 변경 가능
+
 # Rate limiting 설정
 limiter = Limiter(key_func=get_remote_address)
 app = FastAPI(title="Lighter Portfolio Tracker")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# 세션 미들웨어 추가 (접근 제어용)
+app.add_middleware(SessionMiddleware, secret_key=secrets.token_hex(32))
 
 # CORS 설정 - 프로덕션 환경에 맞게 제한
 app.add_middleware(
@@ -73,9 +81,23 @@ def to_checksum_address_fallback(address: str) -> str:
             result += char
     return result
 
+# 인증 의존성 함수
+def require_authentication(request: Request):
+    """접근 코드 인증이 필요한 엔드포인트에 사용"""
+    if not request.session.get("authenticated"):
+        # HTML 요청인 경우 로그인 페이지로 리다이렉션
+        if "text/html" in request.headers.get("accept", ""):
+            return RedirectResponse(url="/login", status_code=302)
+        # API 요청인 경우 401 에러 반환
+        raise HTTPException(status_code=401, detail="Access code required")
+    return True
+
+class LoginRequest(BaseModel):
+    access_code: str
+
 class WalletRequest(BaseModel):
     addresses: List[str]
-    
+
     @validator('addresses', each_item=True)
     def validate_address(cls, v):
         # 대소문자 구분 없이 검증
@@ -99,8 +121,8 @@ class WalletRequest(BaseModel):
     
     @validator('addresses')
     def validate_count(cls, v):
-        if len(v) > 20:
-            raise ValueError('Maximum 20 addresses allowed')
+        if len(v) > 100:
+            raise ValueError('Maximum 100 addresses allowed')
         if len(v) == 0:
             raise ValueError('At least one address required')
         return v
@@ -126,7 +148,7 @@ class AccountData(BaseModel):
 
 @app.post("/api/fetch_accounts")
 @limiter.limit("10/minute")  # 분당 10회 제한
-async def fetch_accounts(wallet_request: WalletRequest, request: Request):
+async def fetch_accounts(wallet_request: WalletRequest, request: Request, authenticated: bool = Depends(require_authentication)):
     """여러 지갑 주소의 데이터를 가져옵니다."""
     # 로그 기록 - 통계 분석용 전체 주소 기록
     client_ip = request.client.host
@@ -273,7 +295,7 @@ async def fetch_accounts(wallet_request: WalletRequest, request: Request):
 
 @app.get("/api/market_prices")
 @limiter.limit("30/minute")
-async def get_market_prices(request: Request):
+async def get_market_prices(request: Request, authenticated: bool = Depends(require_authentication)):
     """토큰 현재 가격을 가져옵니다."""
     try:
         async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
@@ -302,9 +324,184 @@ async def get_market_prices(request: Request):
         logging.error(f"Error fetching market prices: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch market prices")
 
+@app.get("/login", response_class=HTMLResponse)
+async def login_page():
+    """로그인 페이지를 반환합니다."""
+    return """
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lighter Portfolio Tracker - Access</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: linear-gradient(135deg, #1e1f2b 0%, #2d2e3f 100%);
+                color: white;
+                font-family: 'Arial', sans-serif;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .login-container {
+                background: rgba(46, 47, 63, 0.9);
+                padding: 40px;
+                border-radius: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                min-width: 400px;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #f9a826;
+                margin-bottom: 10px;
+            }
+
+            .subtitle {
+                color: #9ca3af;
+                margin-bottom: 30px;
+                font-size: 1.1rem;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+                text-align: left;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #e4e4e7;
+                font-weight: 500;
+            }
+
+            input[type="password"] {
+                width: 100%;
+                padding: 15px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+                background: rgba(30, 31, 43, 0.8);
+                color: white;
+                font-size: 1rem;
+                transition: border-color 0.3s ease;
+            }
+
+            input[type="password"]:focus {
+                outline: none;
+                border-color: #f9a826;
+                box-shadow: 0 0 0 2px rgba(249, 168, 38, 0.2);
+            }
+
+            .btn {
+                width: 100%;
+                padding: 15px;
+                background: #f9a826;
+                color: #1e1f2b;
+                border: none;
+                border-radius: 10px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn:hover {
+                background: #f9d826;
+            }
+
+            .error {
+                color: #ef4444;
+                margin-top: 10px;
+                font-size: 0.9rem;
+            }
+
+            .footer {
+                margin-top: 30px;
+                color: #6b7280;
+                font-size: 0.9rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container">
+            <div class="logo">🔐 Lighter</div>
+            <div class="subtitle">Portfolio Tracker Access</div>
+
+            <form id="loginForm" method="post" action="/auth">
+                <div class="form-group">
+                    <label for="access_code">Access Code</label>
+                    <input type="password" id="access_code" name="access_code" required autofocus>
+                </div>
+
+                <button type="submit" class="btn">Enter</button>
+            </form>
+
+            <div id="error" class="error" style="display: none;"></div>
+
+            <div class="footer">
+                Enter your access code to continue
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(e.target);
+                const errorDiv = document.getElementById('error');
+
+                try {
+                    const response = await fetch('/auth', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        window.location.href = '/';
+                    } else {
+                        const data = await response.json();
+                        errorDiv.textContent = data.detail || 'Invalid access code';
+                        errorDiv.style.display = 'block';
+                    }
+                } catch (error) {
+                    errorDiv.textContent = 'Connection error. Please try again.';
+                    errorDiv.style.display = 'block';
+                }
+            });
+        </script>
+    </body>
+    </html>
+    """
+
+@app.post("/auth")
+async def authenticate(request: Request, access_code: str = Form(...)):
+    """접근 코드 인증 처리"""
+    if access_code == ACCESS_CODE:
+        request.session["authenticated"] = True
+        return RedirectResponse(url="/", status_code=302)
+    else:
+        raise HTTPException(status_code=401, detail="Invalid access code")
+
+@app.get("/logout")
+async def logout(request: Request):
+    """로그아웃 처리"""
+    request.session.clear()
+    return RedirectResponse(url="/login", status_code=302)
+
 @app.get("/", response_class=HTMLResponse)
-async def read_index():
-    """메인 페이지를 반환합니다."""
+async def read_index(request: Request, authenticated: bool = Depends(require_authentication)):
+    """메인 페이지를 반환합니다. (인증 필요)"""
     current_dir = os.path.dirname(os.path.abspath(__file__))
     html_path = os.path.join(current_dir, "static", "index.html")
     with open(html_path, "r", encoding="utf-8") as f:

@@ -1,0 +1,125 @@
+{
+  "timestamp": "2025-10-04T15:30:50.490976",
+  "group": "GROUP_A",
+  "strategy": "volume_maximization",
+  "close_orders": [
+    {
+      "wallet_num": 9,
+      "wallet_addr": "0x497506194d1Bc5D02597142D5A79D9198200118E",
+      "action": "CLOSE",
+      "token": "APEX",
+      "side": "LONG",
+      "current_exposure": 57.344263000000005,
+      "margin_freed": 11.4320116,
+      "reason": "Free margin for volume maximization"
+    },
+    {
+      "wallet_num": 9,
+      "wallet_addr": "0x497506194d1Bc5D02597142D5A79D9198200118E",
+      "action": "CLOSE",
+      "token": "2Z",
+      "side": "SHORT",
+      "current_exposure": 66.199923,
+      "margin_freed": 22.070448,
+      "reason": "Free margin for volume maximization"
+    },
+    {
+      "wallet_num": 9,
+      "wallet_addr": "0x497506194d1Bc5D02597142D5A79D9198200118E",
+      "action": "CLOSE",
+      "token": "ZEC",
+      "side": "LONG",
+      "current_exposure": 92.41313999999998,
+      "margin_freed": 18.4711408,
+      "reason": "Free margin for volume maximization"
+    },
+    {
+      "wallet_num": 12,
+      "wallet_addr": "0xa9B5be1fc07E0538A5278beedB3A45bb3fbDC893",
+      "action": "CLOSE",
+      "token": "ZEC",
+      "side": "LONG",
+      "current_exposure": 63.834509999999995,
+      "margin_freed": 12.758967199999999,
+      "reason": "Free margin for volume maximization"
+    },
+    {
+      "wallet_num": 12,
+      "wallet_addr": "0xa9B5be1fc07E0538A5278beedB3A45bb3fbDC893",
+      "action": "CLOSE",
+      "token": "0G",
+      "side": "SHORT",
+      "current_exposure": 66.802584,
+      "margin_freed": 22.284149333333332,
+      "reason": "Free margin for volume maximization"
+    },
+    {
+      "wallet_num": 13,
+      "wallet_addr": "0x5979857213bb73233aDBf029a7454DFb00A33539",
+      "action": "CLOSE",
+      "token": "ZEC",
+      "side": "LONG",
+      "current_exposure": 44.470485,
+      "margin_freed": 8.888569200000001,
+      "reason": "Free margin for volume maximization"
+    },
+    {
+      "wallet_num": 13,
+      "wallet_addr": "0x5979857213bb73233aDBf029a7454DFb00A33539",
+      "action": "CLOSE",
+      "token": "EDEN",
+      "side": "SHORT",
+      "current_exposure": 54.555851000000004,
+      "margin_freed": 18.179111666666667,
+      "reason": "Free margin for volume maximization"
+    }
+  ],
+  "rebalance_orders": [
+    {
+      "wallet_num": 9,
+      "wallet_addr": "0x497506194d1Bc5D02597142D5A79D9198200118E",
+      "action": "OPEN",
+      "token": "FF",
+      "side": "LONG",
+      "margin": 40,
+      "leverage": 3,
+      "notional": 120,
+      "reason": "Volume maximization - LONG FF"
+    },
+    {
+      "wallet_num": 12,
+      "wallet_addr": "0xa9B5be1fc07E0538A5278beedB3A45bb3fbDC893",
+      "action": "OPEN",
+      "token": "2Z",
+      "side": "LONG",
+      "margin": 28.43,
+      "leverage": 3,
+      "notional": 85.28,
+      "reason": "Volume maximization - LONG 2Z"
+    },
+    {
+      "wallet_num": 13,
+      "wallet_addr": "0x5979857213bb73233aDBf029a7454DFb00A33539",
+      "action": "OPEN",
+      "token": "2Z",
+      "side": "SHORT",
+      "margin": 19.21,
+      "leverage": 3,
+      "notional": 57.64,
+      "reason": "Volume maximization - SHORT 2Z"
+    }
+  ],
+  "volume_impact": {
+    "close_volume": 445.62075600000003,
+    "new_volume": 262.92,
+    "total_volume": 708.5407560000001,
+    "volume_multiplier": 1.5900084241138894
+  },
+  "summary": {
+    "total_orders": 10,
+    "close_volume": 445.62075600000003,
+    "new_volume": 262.92,
+    "total_volume": 708.5407560000001,
+    "volume_multiplier": 1.5900084241138894
+  }
+}

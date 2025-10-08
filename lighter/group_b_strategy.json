@@ -1,0 +1,329 @@
+{
+  "timestamp": "2025-10-04T21:26:33.706674",
+  "group": "GROUP_B",
+  "strategy": "balanced_optimization",
+  "wallet_analysis": {
+    "6": {
+      "address": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "collateral": 197.50598,
+      "used_margin": 201.74920166666666,
+      "available_margin": 5.1603601999999995,
+      "max_margin": 177.755382,
+      "current_positions": [
+        {
+          "token": "APEX",
+          "side": "SHORT",
+          "amount": 72.7,
+          "exposure": 142.2012,
+          "margin": 47.434326666666664,
+          "leverage": 3.0,
+          "pnl": -17.269885
+        },
+        {
+          "token": "2Z",
+          "side": "LONG",
+          "amount": 237.4,
+          "exposure": 119.338606,
+          "margin": 39.766874,
+          "leverage": 3.0,
+          "pnl": -3.84588
+        },
+        {
+          "token": "EDEN",
+          "side": "SHORT",
+          "amount": 383.1,
+          "exposure": 142.601313,
+          "margin": 47.510785,
+          "leverage": 3.0,
+          "pnl": -13.481289
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "amount": 1.416,
+          "exposure": 201.165456,
+          "margin": 67.037216,
+          "leverage": 3.0,
+          "pnl": -6.038106
+        }
+      ],
+      "wallet_long": {
+        "2Z": 119.338606,
+        "ZEC": 201.165456
+      },
+      "wallet_short": {
+        "APEX": 142.2012,
+        "EDEN": 142.601313
+      },
+      "total_exposure": 605.3065750000001,
+      "utilization_rate": 113.49822401814347
+    },
+    "11": {
+      "address": "0x51a35979C49354B2eD87F86eb1A679815753c331",
+      "collateral": 34.338562,
+      "used_margin": 23.218283466666666,
+      "available_margin": 7.686422333333336,
+      "max_margin": 30.904705800000002,
+      "current_positions": [
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "amount": 108.4,
+          "exposure": 28.679388000000003,
+          "margin": 9.548594666666666,
+          "leverage": 3.0,
+          "pnl": -2.004316
+        },
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "amount": 19.1,
+          "exposure": 37.3596,
+          "margin": 7.477268,
+          "leverage": 5.0,
+          "pnl": 4.9278
+        },
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "amount": 0.218,
+          "exposure": 30.970388,
+          "margin": 6.1924208,
+          "leverage": 5.0,
+          "pnl": 1.292958
+        }
+      ],
+      "wallet_long": {
+        "STBL": 28.679388000000003,
+        "APEX": 37.3596
+      },
+      "wallet_short": {
+        "ZEC": 30.970388
+      },
+      "total_exposure": 97.009376,
+      "utilization_rate": 75.1286345093331
+    },
+    "2": {
+      "address": "0xe67b28750153E7D95Ff001b2557EbA6C5F56092c",
+      "collateral": 20.744922,
+      "used_margin": 17.768331733333333,
+      "available_margin": 6.9808964666666675,
+      "max_margin": 18.6704298,
+      "current_positions": [
+        {
+          "token": "FF",
+          "side": "LONG",
+          "amount": 185.0,
+          "exposure": 35.0501,
+          "margin": 11.689533333333335,
+          "leverage": 3.0,
+          "pnl": 2.23295
+        },
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "amount": 0.214,
+          "exposure": 30.402124,
+          "margin": 6.0787984,
+          "leverage": 5.0,
+          "pnl": 1.157526
+        }
+      ],
+      "wallet_long": {
+        "FF": 35.0501
+      },
+      "wallet_short": {
+        "ZEC": 30.402124
+      },
+      "total_exposure": 65.452224,
+      "utilization_rate": 95.16830583800129
+    },
+    "4": {
+      "address": "0xe5909A5817325797f8Ed2C4c079f6c78B5E9bfa2",
+      "collateral": 5.158949,
+      "used_margin": 0,
+      "available_margin": 4.6430541,
+      "max_margin": 4.6430541,
+      "current_positions": [],
+      "wallet_long": {},
+      "wallet_short": {},
+      "total_exposure": 0,
+      "utilization_rate": 0.0
+    },
+    "15": {
+      "address": "0xFD930dB05F90885DEd7Db693057E5B899b528b2b",
+      "collateral": 107.79969,
+      "used_margin": 84.1943694,
+      "available_margin": 13.900794900000001,
+      "max_margin": 97.019721,
+      "current_positions": [
+        {
+          "token": "FF",
+          "side": "LONG",
+          "amount": 391.5,
+          "exposure": 74.17358999999999,
+          "margin": 24.728444999999997,
+          "leverage": 3.0,
+          "pnl": 5.343975
+        },
+        {
+          "token": "2Z",
+          "side": "LONG",
+          "amount": 125.6,
+          "exposure": 63.13786399999999,
+          "margin": 21.039255999999998,
+          "leverage": 3.0,
+          "pnl": -1.876464
+        },
+        {
+          "token": "EDEN",
+          "side": "LONG",
+          "amount": 209.3,
+          "exposure": 77.907739,
+          "margin": 25.955293,
+          "leverage": 3.0,
+          "pnl": 7.394569
+        },
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "amount": 0.439,
+          "exposure": 62.366974,
+          "margin": 12.4713754,
+          "leverage": 5.0,
+          "pnl": 2.342943
+        }
+      ],
+      "wallet_long": {
+        "FF": 74.17358999999999,
+        "2Z": 63.13786399999999,
+        "EDEN": 77.907739
+      },
+      "wallet_short": {
+        "ZEC": 62.366974
+      },
+      "total_exposure": 277.58616699999993,
+      "utilization_rate": 86.78067565253048
+    }
+  },
+  "close_orders": [
+    {
+      "wallet_num": 6,
+      "wallet_addr": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "action": "CLOSE",
+      "token": "2Z",
+      "side": "LONG",
+      "current_exposure": 119.338606,
+      "margin_freed": 39.766874,
+      "pnl": -3.84588,
+      "reason": "Free margin for GROUP_B optimization"
+    },
+    {
+      "wallet_num": 6,
+      "wallet_addr": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "action": "CLOSE",
+      "token": "APEX",
+      "side": "SHORT",
+      "current_exposure": 142.2012,
+      "margin_freed": 47.434326666666664,
+      "pnl": -17.269885,
+      "reason": "Free margin for GROUP_B optimization"
+    },
+    {
+      "wallet_num": 2,
+      "wallet_addr": "0xe67b28750153E7D95Ff001b2557EbA6C5F56092c",
+      "action": "CLOSE",
+      "token": "ZEC",
+      "side": "SHORT",
+      "current_exposure": 30.402124,
+      "margin_freed": 6.0787984,
+      "pnl": 1.157526,
+      "reason": "Free margin for GROUP_B optimization"
+    },
+    {
+      "wallet_num": 15,
+      "wallet_addr": "0xFD930dB05F90885DEd7Db693057E5B899b528b2b",
+      "action": "CLOSE",
+      "token": "ZEC",
+      "side": "SHORT",
+      "current_exposure": 62.366974,
+      "margin_freed": 12.4713754,
+      "pnl": 2.342943,
+      "reason": "Free margin for GROUP_B optimization"
+    },
+    {
+      "wallet_num": 15,
+      "wallet_addr": "0xFD930dB05F90885DEd7Db693057E5B899b528b2b",
+      "action": "CLOSE",
+      "token": "2Z",
+      "side": "LONG",
+      "current_exposure": 63.13786399999999,
+      "margin_freed": 21.039255999999998,
+      "pnl": -1.876464,
+      "reason": "Free margin for GROUP_B optimization"
+    }
+  ],
+  "strategy_orders": [
+    {
+      "wallet_num": 6,
+      "wallet_addr": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "action": "OPEN",
+      "token": "FF",
+      "side": "SHORT",
+      "margin": 35,
+      "leverage": 3,
+      "notional": 105,
+      "reason": "GROUP_B optimization - balance FF"
+    },
+    {
+      "wallet_num": 6,
+      "wallet_addr": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "action": "OPEN",
+      "token": "STBL",
+      "side": "LONG",
+      "margin": 35,
+      "leverage": 3,
+      "notional": 105,
+      "reason": "GROUP_B optimization - balance STBL"
+    },
+    {
+      "wallet_num": 6,
+      "wallet_addr": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "action": "OPEN",
+      "token": "0G",
+      "side": "SHORT",
+      "margin": 12.04,
+      "leverage": 3,
+      "notional": 36.12,
+      "reason": "GROUP_B optimization - balance 0G"
+    },
+    {
+      "wallet_num": 15,
+      "wallet_addr": "0xFD930dB05F90885DEd7Db693057E5B899b528b2b",
+      "action": "OPEN",
+      "token": "STBL",
+      "side": "SHORT",
+      "margin": 32.44,
+      "leverage": 3,
+      "notional": 97.31,
+      "reason": "GROUP_B optimization - balance STBL"
+    }
+  ],
+  "impact_analysis": {
+    "current_exposure": 1045.354342,
+    "close_volume": 417.44676799999996,
+    "new_volume": 343.43,
+    "total_volume": 760.876768,
+    "margin_freed": 126.79063046666666,
+    "margin_used": 114.47999999999999,
+    "net_margin_change": -12.310630466666666,
+    "volume_increase": -74.01676799999996,
+    "efficiency_ratio": 2.9999126484975545
+  },
+  "summary": {
+    "total_orders": 9,
+    "net_volume_change": -74.01676799999996,
+    "efficiency_ratio": 2.9999126484975545,
+    "group_size": 5
+  }
+}

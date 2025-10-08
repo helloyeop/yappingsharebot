@@ -1,0 +1,1815 @@
+{
+  "timestamp": "2025-10-03T22:32:09.006077",
+  "token_prices": {},
+  "metrics": {
+    "total_volume_24h": 3367.5300000000007,
+    "total_volume_7d": 14932.889999999994,
+    "total_positions": 51,
+    "total_margin_used": 1122.5100000000002,
+    "total_collateral": 1244.51,
+    "margin_utilization": 90.19694498236255,
+    "avg_position_size": 22.010000000000005,
+    "long_exposure": {
+      "APEX": 288.24,
+      "FF": 238.07999999999998,
+      "0G": 130.95,
+      "STBL": 274.08000000000004,
+      "ZEC": 425.22,
+      "2Z": 312.03000000000003,
+      "EDEN": 150.06
+    },
+    "short_exposure": {
+      "STBL": 32.46,
+      "ZEC": 215.54999999999998,
+      "FF": 213.06,
+      "EDEN": 355.5,
+      "APEX": 348.03,
+      "2Z": 70.59,
+      "0G": 313.68
+    },
+    "net_exposure": {
+      "APEX": -59.789999999999964,
+      "STBL": 241.62000000000003,
+      "FF": 25.019999999999982,
+      "0G": -182.73000000000002,
+      "EDEN": -205.44,
+      "ZEC": 209.67000000000004,
+      "2Z": 241.44000000000003
+    },
+    "total_net_delta": 269.7900000000001
+  },
+  "allocations": [
+    {
+      "wallet": "0xC74Ef16B20c50B7337585a0a8e1eed3EDd50CF43",
+      "wallet_index": 1,
+      "collateral": 23.93,
+      "total_margin_used": 21.130000000000003,
+      "positions": [
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "margin": 10.31,
+          "leverage": 3,
+          "notional_value": 30.93,
+          "entry_time": "2025-10-03T22:57:09.005057"
+        },
+        {
+          "token": "STBL",
+          "side": "SHORT",
+          "margin": 10.82,
+          "leverage": 3,
+          "notional_value": 32.46,
+          "entry_time": "2025-10-04T01:26:09.005073"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T10:44:09.005057",
+          "volume_impact": 15.465
+        },
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T07:36:09.005057",
+          "volume_impact": 15.465
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T14:23:09.005057",
+          "volume_impact": 30.93
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T15:57:09.005057",
+          "volume_impact": 30.93
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-09T11:55:09.005057",
+          "volume_impact": 30.93
+        },
+        {
+          "token": "STBL",
+          "type": "ADD_POSITION",
+          "time": "2025-10-05T02:02:09.005073",
+          "volume_impact": 32.46
+        },
+        {
+          "token": "STBL",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T00:01:09.005073",
+          "volume_impact": 16.23
+        },
+        {
+          "token": "STBL",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T11:26:09.005073",
+          "volume_impact": 32.46
+        }
+      ]
+    },
+    {
+      "wallet": "0xe67b28750153E7D95Ff001b2557EbA6C5F56092c",
+      "wallet_index": 2,
+      "collateral": 24.17,
+      "total_margin_used": 21.299999999999997,
+      "positions": [
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "margin": 10.35,
+          "leverage": 3,
+          "notional_value": 31.049999999999997,
+          "entry_time": "2025-10-04T00:22:09.005102"
+        },
+        {
+          "token": "FF",
+          "side": "LONG",
+          "margin": 10.95,
+          "leverage": 3,
+          "notional_value": 32.849999999999994,
+          "entry_time": "2025-10-04T01:14:09.005107"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "ZEC",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T10:10:09.005102",
+          "volume_impact": 15.524999999999999
+        },
+        {
+          "token": "ZEC",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T11:15:09.005102",
+          "volume_impact": 31.049999999999997
+        },
+        {
+          "token": "ZEC",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T16:23:09.005102",
+          "volume_impact": 31.049999999999997
+        },
+        {
+          "token": "ZEC",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-08T16:47:09.005102",
+          "volume_impact": 15.524999999999999
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T03:01:09.005107",
+          "volume_impact": 32.849999999999994
+        },
+        {
+          "token": "FF",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T21:34:09.005107",
+          "volume_impact": 32.849999999999994
+        },
+        {
+          "token": "FF",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T09:56:09.005107",
+          "volume_impact": 32.849999999999994
+        },
+        {
+          "token": "FF",
+          "type": "ADD_POSITION",
+          "time": "2025-10-08T16:19:09.005107",
+          "volume_impact": 32.849999999999994
+        }
+      ]
+    },
+    {
+      "wallet": "0x7878AE8C54227440293a0BB83b63F39DC24A0899",
+      "wallet_index": 3,
+      "collateral": 120.58,
+      "total_margin_used": 110.46,
+      "positions": [
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "margin": 28.27,
+          "leverage": 3,
+          "notional_value": 84.81,
+          "entry_time": "2025-10-03T22:43:09.005131"
+        },
+        {
+          "token": "0G",
+          "side": "LONG",
+          "margin": 26.38,
+          "leverage": 3,
+          "notional_value": 79.14,
+          "entry_time": "2025-10-04T01:46:09.005135"
+        },
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "margin": 27.7,
+          "leverage": 3,
+          "notional_value": 83.1,
+          "entry_time": "2025-10-04T02:57:09.005139"
+        },
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "margin": 28.11,
+          "leverage": 3,
+          "notional_value": 84.33,
+          "entry_time": "2025-10-04T05:03:09.005143"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T02:08:09.005131",
+          "volume_impact": 84.81
+        },
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T18:53:09.005131",
+          "volume_impact": 84.81
+        },
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T14:49:09.005131",
+          "volume_impact": 42.405
+        },
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-08T20:55:09.005131",
+          "volume_impact": 84.81
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-09T12:17:09.005131",
+          "volume_impact": 84.81
+        },
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T09:15:09.005135",
+          "volume_impact": 39.57
+        },
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T19:08:09.005135",
+          "volume_impact": 39.57
+        },
+        {
+          "token": "0G",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T05:24:09.005135",
+          "volume_impact": 79.14
+        },
+        {
+          "token": "0G",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-09T00:22:09.005135",
+          "volume_impact": 79.14
+        },
+        {
+          "token": "STBL",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T13:00:09.005139",
+          "volume_impact": 83.1
+        },
+        {
+          "token": "STBL",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T20:10:09.005139",
+          "volume_impact": 41.55
+        },
+        {
+          "token": "STBL",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T19:49:09.005139",
+          "volume_impact": 83.1
+        },
+        {
+          "token": "STBL",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T22:25:09.005139",
+          "volume_impact": 83.1
+        },
+        {
+          "token": "STBL",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-09T04:36:09.005139",
+          "volume_impact": 83.1
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T00:41:09.005143",
+          "volume_impact": 84.33
+        },
+        {
+          "token": "ZEC",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T07:56:09.005143",
+          "volume_impact": 42.165
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T19:00:09.005143",
+          "volume_impact": 84.33
+        }
+      ]
+    },
+    {
+      "wallet": "0xe5909A5817325797f8Ed2C4c079f6c78B5E9bfa2",
+      "wallet_index": 4,
+      "collateral": 8.77,
+      "total_margin_used": 7.74,
+      "positions": [
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "margin": 7.74,
+          "leverage": 3,
+          "notional_value": 23.22,
+          "entry_time": "2025-10-03T22:51:09.005188"
+        }
+      ],
+      "rebalancing": [  
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T08:00:09.005188",
+          "volume_impact": 23.22
+        },
+        {
+          "token": "FF",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T00:48:09.005188",
+          "volume_impact": 23.22
+        },
+        {
+          "token": "FF",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T17:23:09.005188",
+          "volume_impact": 11.61
+        }
+      ]
+    },
+    {
+      "wallet": "0x29855eB076f6d4a571890a75fe8944380ca6ccC6",
+      "wallet_index": 5,
+      "collateral": 106.28,
+      "total_margin_used": 94.98,
+      "positions": [
+        {
+          "token": "EDEN",
+          "side": "SHORT",
+          "margin": 23.8,
+          "leverage": 3,
+          "notional_value": 71.4,
+          "entry_time": "2025-10-03T23:53:09.005200"
+        },
+        {
+          "token": "FF",
+          "side": "LONG",
+          "margin": 23.26,
+          "leverage": 3,
+          "notional_value": 69.78,
+          "entry_time": "2025-10-04T02:03:09.005204"
+        },
+        {
+          "token": "APEX",
+          "side": "SHORT",
+          "margin": 24.39,
+          "leverage": 3,
+          "notional_value": 73.17,
+          "entry_time": "2025-10-04T03:59:09.005208"
+        },
+        {
+          "token": "2Z",
+          "side": "SHORT",
+          "margin": 23.53,
+          "leverage": 3,
+          "notional_value": 70.59,
+          "entry_time": "2025-10-04T06:14:09.005213"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T02:10:09.005200",
+          "volume_impact": 71.4
+        },
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T03:35:09.005200",
+          "volume_impact": 71.4
+        },
+        {
+          "token": "EDEN",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T18:00:09.005200",
+          "volume_impact": 35.7
+        },
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T13:33:09.005200",
+          "volume_impact": 71.4
+        },
+        {
+          "token": "FF",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T01:51:09.005204",
+          "volume_impact": 69.78
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T08:25:09.005204",
+          "volume_impact": 69.78
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T12:13:09.005204",
+          "volume_impact": 69.78
+        },
+        {
+          "token": "FF",
+          "type": "ADD_POSITION",
+          "time": "2025-10-08T22:05:09.005204",
+          "volume_impact": 69.78
+        },
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T19:40:09.005208",
+          "volume_impact": 73.17
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T16:31:09.005208",
+          "volume_impact": 73.17
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T01:55:09.005208",
+          "volume_impact": 73.17
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T07:58:09.005208",
+          "volume_impact": 73.17
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-10T02:36:09.005208",
+          "volume_impact": 73.17
+        },
+        {
+          "token": "2Z",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T01:37:09.005213",
+          "volume_impact": 70.59
+        },
+        {
+          "token": "2Z",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T17:58:09.005213",
+          "volume_impact": 35.295
+        },
+        {
+          "token": "2Z",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T21:18:09.005213",
+          "volume_impact": 70.59
+        },
+        {
+          "token": "2Z",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-09T01:04:09.005213",
+          "volume_impact": 70.59
+        }
+      ]
+    },
+    {
+      "wallet": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "wallet_index": 6,
+      "collateral": 186.61,
+      "total_margin_used": 168.72,
+      "positions": [
+        {
+          "token": "EDEN",
+          "side": "SHORT",
+          "margin": 43.02,
+          "leverage": 3,
+          "notional_value": 129.06,
+          "entry_time": "2025-10-03T22:38:09.005310"
+        },
+        {
+          "token": "APEX",
+          "side": "SHORT",
+          "margin": 41.69,
+          "leverage": 3,
+          "notional_value": 125.07,
+          "entry_time": "2025-10-04T01:35:09.005320"
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "margin": 42.04,
+          "leverage": 3,
+          "notional_value": 126.12,
+          "entry_time": "2025-10-04T03:35:09.005325"
+        },
+        {
+          "token": "2Z",
+          "side": "LONG",
+          "margin": 41.97,
+          "leverage": 3,
+          "notional_value": 125.91,
+          "entry_time": "2025-10-04T06:25:09.005329"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "EDEN",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T00:13:09.005310",
+          "volume_impact": 129.06
+        },
+        {
+          "token": "EDEN",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T08:14:09.005310",
+          "volume_impact": 129.06
+        },
+        {
+          "token": "EDEN",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T07:55:09.005310",
+          "volume_impact": 129.06
+        },
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T19:48:09.005310",
+          "volume_impact": 129.06
+        },
+        {
+          "token": "EDEN",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-09T16:55:09.005310",
+          "volume_impact": 129.06
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T11:49:09.005320",
+          "volume_impact": 125.07
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T07:05:09.005320",
+          "volume_impact": 125.07
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T12:10:09.005320",
+          "volume_impact": 125.07
+        },
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-08T10:49:09.005320",
+          "volume_impact": 62.535
+        },
+        {
+          "token": "ZEC",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T04:01:09.005325",
+          "volume_impact": 63.06
+        },
+        {
+          "token": "ZEC",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T18:39:09.005325",
+          "volume_impact": 126.12
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T07:36:09.005325",
+          "volume_impact": 126.12
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-08T11:05:09.005325",
+          "volume_impact": 126.12
+        },
+        {
+          "token": "2Z",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T03:26:09.005329",
+          "volume_impact": 125.91
+        },
+        {
+          "token": "2Z",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T03:05:09.005329",
+          "volume_impact": 125.91
+        },
+        {
+          "token": "2Z",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T09:08:09.005329",
+          "volume_impact": 125.91
+        }
+      ]
+    },
+    {
+      "wallet": "0xE81261c93c99b4DCE06068adC0C2a7fFE425732f",
+      "wallet_index": 7,
+      "collateral": 76.98,
+      "total_margin_used": 68.12,
+      "positions": [
+        {
+          "token": "FF",
+          "side": "LONG",
+          "margin": 22.65,
+          "leverage": 3,
+          "notional_value": 67.94999999999999,
+          "entry_time": "2025-10-03T22:33:09.005374"
+        },
+        {
+          "token": "EDEN",
+          "side": "LONG",
+          "margin": 22.47,
+          "leverage": 3,
+          "notional_value": 67.41,
+          "entry_time": "2025-10-04T01:40:09.005378"
+        },
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "margin": 23.0,
+          "leverage": 3,
+          "notional_value": 69.0,
+          "entry_time": "2025-10-04T02:48:09.005382"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "FF",
+          "type": "ADD_POSITION",
+          "time": "2025-10-05T18:25:09.005374",
+          "volume_impact": 67.94999999999999
+        },
+        {
+          "token": "FF",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T18:13:09.005374",
+          "volume_impact": 33.974999999999994
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T23:49:09.005374",
+          "volume_impact": 67.94999999999999
+        },
+        {
+          "token": "EDEN",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T08:24:09.005378",
+          "volume_impact": 33.705
+        },
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T22:05:09.005378",
+          "volume_impact": 67.41
+        },
+        {
+          "token": "EDEN",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T04:33:09.005378",
+          "volume_impact": 67.41
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-05T09:26:09.005382",
+          "volume_impact": 69.0
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T06:28:09.005382",
+          "volume_impact": 69.0
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T15:41:09.005382",
+          "volume_impact": 69.0
+        }
+      ]
+    },
+    {
+      "wallet": "0x349f3e1db87719CE7c1013AE7b7Feb70053A1c2f",
+      "wallet_index": 8,
+      "collateral": 3.83,
+      "total_margin_used": 3.42,
+      "positions": [
+        {
+          "token": "APEX",
+          "side": "SHORT",
+          "margin": 3.42,
+          "leverage": 3,
+          "notional_value": 10.26,
+          "entry_time": "2025-10-03T22:49:09.005407"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-05T21:59:09.005407",
+          "volume_impact": 10.26
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T11:42:09.005407",
+          "volume_impact": 10.26
+        },
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T11:56:09.005407",
+          "volume_impact": 10.26
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-08T05:36:09.005407",
+          "volume_impact": 10.26
+        }
+      ]
+    },
+    {
+      "wallet": "0x497506194d1Bc5D02597142D5A79D9198200118E",
+      "wallet_index": 9,
+      "collateral": 152.03,
+      "total_margin_used": 139.32999999999998,
+      "positions": [
+        {
+          "token": "0G",
+          "side": "SHORT",
+          "margin": 35.89,
+          "leverage": 3,
+          "notional_value": 107.67,
+          "entry_time": "2025-10-04T00:27:09.005420"
+        },
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "margin": 35.17,
+          "leverage": 3,
+          "notional_value": 105.51,
+          "entry_time": "2025-10-04T01:15:09.005426"
+        },
+        {
+          "token": "EDEN",
+          "side": "SHORT",
+          "margin": 34.66,
+          "leverage": 3,
+          "notional_value": 103.97999999999999,
+          "entry_time": "2025-10-04T04:08:09.005430"
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "margin": 33.61,
+          "leverage": 3,
+          "notional_value": 100.83,
+          "entry_time": "2025-10-04T04:43:09.005454"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T06:32:09.005420",
+          "volume_impact": 53.835
+        },
+        {
+          "token": "0G",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T11:40:09.005420",
+          "volume_impact": 107.67
+        },
+        {
+          "token": "0G",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T10:11:09.005420",
+          "volume_impact": 107.67
+        },
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-08T13:35:09.005420",
+          "volume_impact": 53.835
+        },
+        {
+          "token": "STBL",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T03:13:09.005426",
+          "volume_impact": 52.755
+        },
+        {
+          "token": "STBL",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T12:21:09.005426",
+          "volume_impact": 105.51
+        },
+        {
+          "token": "STBL",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T14:51:09.005426",
+          "volume_impact": 105.51
+        },
+        {
+          "token": "EDEN",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T07:09:09.005430",
+          "volume_impact": 51.989999999999995
+        },
+        {
+          "token": "EDEN",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T21:25:09.005430",
+          "volume_impact": 51.989999999999995
+        },
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T19:11:09.005430",
+          "volume_impact": 103.97999999999999
+        },
+        {
+          "token": "EDEN",
+          "type": "ADD_POSITION",
+          "time": "2025-10-08T06:10:09.005430",
+          "volume_impact": 103.97999999999999
+        },
+        {
+          "token": "ZEC",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T01:35:09.005454",
+          "volume_impact": 50.415
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T17:31:09.005454",
+          "volume_impact": 100.83
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T23:32:09.005454",
+          "volume_impact": 100.83
+        }
+      ]
+    },
+    {
+      "wallet": "0x25dcd95A7a6D56eA4e781C7586306a4d9768227C",
+      "wallet_index": 10,
+      "collateral": 58.5,
+      "total_margin_used": 52.44,
+      "positions": [
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "margin": 18.1,
+          "leverage": 3,
+          "notional_value": 54.300000000000004,
+          "entry_time": "2025-10-03T23:47:09.005489"
+        },
+        {
+          "token": "2Z",
+          "side": "LONG",
+          "margin": 17.07,
+          "leverage": 3,
+          "notional_value": 51.21,
+          "entry_time": "2025-10-04T00:36:09.005493"
+        },
+        {
+          "token": "0G",
+          "side": "LONG",
+          "margin": 17.27,
+          "leverage": 3,
+          "notional_value": 51.81,
+          "entry_time": "2025-10-04T04:27:09.005496"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "STBL",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T15:30:09.005489",
+          "volume_impact": 54.300000000000004
+        },
+        {
+          "token": "STBL",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T20:41:09.005489",
+          "volume_impact": 27.150000000000002
+        },
+        {
+          "token": "STBL",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T18:19:09.005489",
+          "volume_impact": 54.300000000000004
+        },
+        {
+          "token": "2Z",
+          "type": "ADD_POSITION",
+          "time": "2025-10-05T20:51:09.005493",
+          "volume_impact": 51.21
+        },
+        {
+          "token": "2Z",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T04:50:09.005493",
+          "volume_impact": 25.605
+        },
+        {
+          "token": "2Z",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T08:31:09.005493",
+          "volume_impact": 51.21
+        },
+        {
+          "token": "2Z",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-08T20:17:09.005493",
+          "volume_impact": 51.21
+        },
+        {
+          "token": "2Z",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-09T09:08:09.005493",
+          "volume_impact": 51.21
+        },
+        {
+          "token": "0G",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T21:11:09.005496",
+          "volume_impact": 51.81
+        },
+        {
+          "token": "0G",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T07:10:09.005496",
+          "volume_impact": 51.81
+        },
+        {
+          "token": "0G",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T12:43:09.005496",
+          "volume_impact": 51.81
+        },
+        {
+          "token": "0G",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-09T00:28:09.005496",
+          "volume_impact": 51.81
+        },
+        {
+          "token": "0G",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-09T13:14:09.005496",
+          "volume_impact": 51.81
+        }
+      ]
+    },
+    {
+      "wallet": "0x51a35979C49354B2eD87F86eb1A679815753c331",
+      "wallet_index": 11,
+      "collateral": 34.46,
+      "total_margin_used": 31.71,
+      "positions": [
+        {
+          "token": "STBL",
+          "side": "LONG",
+          "margin": 10.39,
+          "leverage": 3,
+          "notional_value": 31.17,
+          "entry_time": "2025-10-04T00:21:09.005528"
+        },
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "margin": 10.48,
+          "leverage": 3,
+          "notional_value": 31.44,
+          "entry_time": "2025-10-04T00:45:09.005532"
+        },
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "margin": 10.84,
+          "leverage": 3,
+          "notional_value": 32.519999999999996,
+          "entry_time": "2025-10-04T03:24:09.005535"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "STBL",
+          "type": "ADD_POSITION",
+          "time": "2025-10-05T15:26:09.005528",
+          "volume_impact": 31.17
+        },
+        {
+          "token": "STBL",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T00:23:09.005528",
+          "volume_impact": 31.17
+        },
+        {
+          "token": "STBL",
+          "type": "ADD_POSITION",
+          "time": "2025-10-08T00:07:09.005528",
+          "volume_impact": 31.17
+        },
+        {
+          "token": "STBL",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T11:57:09.005528",
+          "volume_impact": 31.17
+        },
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T09:18:09.005532",
+          "volume_impact": 31.44
+        },
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T03:54:09.005532",
+          "volume_impact": 31.44
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T19:49:09.005532",
+          "volume_impact": 31.44
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-08T23:06:09.005532",
+          "volume_impact": 31.44
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T03:33:09.005535",
+          "volume_impact": 32.519999999999996
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T14:06:09.005535",
+          "volume_impact": 32.519999999999996
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T19:59:09.005535",
+          "volume_impact": 32.519999999999996
+        },
+        {
+          "token": "ZEC",
+          "type": "ADD_POSITION",
+          "time": "2025-10-08T20:18:09.005535",
+          "volume_impact": 32.519999999999996
+        }
+      ]
+    },
+    {
+      "wallet": "0xa9B5be1fc07E0538A5278beedB3A45bb3fbDC893",
+      "wallet_index": 12,
+      "collateral": 103.36,
+      "total_margin_used": 93.89,
+      "positions": [
+        {
+          "token": "0G",
+          "side": "SHORT",
+          "margin": 22.79,
+          "leverage": 3,
+          "notional_value": 68.37,
+          "entry_time": "2025-10-03T23:09:09.005565"
+        },
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "margin": 23.71,
+          "leverage": 3,
+          "notional_value": 71.13,
+          "entry_time": "2025-10-04T02:18:09.005568"
+        },
+        {
+          "token": "APEX",
+          "side": "LONG",
+          "margin": 24.02,
+          "leverage": 3,
+          "notional_value": 72.06,
+          "entry_time": "2025-10-04T03:27:09.005572"
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "margin": 23.37,
+          "leverage": 3,
+          "notional_value": 70.11,
+          "entry_time": "2025-10-04T06:22:09.005575"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "0G",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T11:45:09.005565",
+          "volume_impact": 68.37
+        },
+        {
+          "token": "0G",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T04:55:09.005565",
+          "volume_impact": 68.37
+        },
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T01:04:09.005565",
+          "volume_impact": 34.185
+        },
+        {
+          "token": "0G",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-08T05:37:09.005565",
+          "volume_impact": 68.37
+        },
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-09T11:46:09.005565",
+          "volume_impact": 34.185
+        },
+        {
+          "token": "FF",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T03:09:09.005568",
+          "volume_impact": 35.565
+        },
+        {
+          "token": "FF",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T22:58:09.005568",
+          "volume_impact": 35.565
+        },
+        {
+          "token": "FF",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T23:16:09.005568",
+          "volume_impact": 35.565
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-09T01:41:09.005568",
+          "volume_impact": 71.13
+        },
+        {
+          "token": "FF",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-09T02:50:09.005568",
+          "volume_impact": 71.13
+        },
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T06:19:09.005572",
+          "volume_impact": 72.06
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T14:41:09.005572",
+          "volume_impact": 72.06
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T23:30:09.005572",
+          "volume_impact": 72.06
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T04:19:09.005575",
+          "volume_impact": 70.11
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T18:02:09.005575",
+          "volume_impact": 70.11
+        },
+        {
+          "token": "ZEC",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T21:09:09.005575",
+          "volume_impact": 35.055
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-09T03:42:09.005575",
+          "volume_impact": 70.11
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-09T07:07:09.005575",
+          "volume_impact": 70.11
+        }
+      ]
+    },
+    {
+      "wallet": "0x5979857213bb73233aDBf029a7454DFb00A33539",
+      "wallet_index": 13,
+      "collateral": 57.04,
+      "total_margin_used": 50.989999999999995,
+      "positions": [
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "margin": 17.66,
+          "leverage": 3,
+          "notional_value": 52.980000000000004,
+          "entry_time": "2025-10-03T23:18:09.005616"
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "margin": 16.31,
+          "leverage": 3,
+          "notional_value": 48.92999999999999,
+          "entry_time": "2025-10-04T01:57:09.005621"
+        },
+        {
+          "token": "EDEN",
+          "side": "SHORT",
+          "margin": 17.02,
+          "leverage": 3,
+          "notional_value": 51.06,
+          "entry_time": "2025-10-04T03:46:09.005625"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "FF",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T13:28:09.005616",
+          "volume_impact": 26.490000000000002
+        },
+        {
+          "token": "FF",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T22:59:09.005616",
+          "volume_impact": 26.490000000000002
+        },
+        {
+          "token": "FF",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T21:27:09.005616",
+          "volume_impact": 52.980000000000004
+        },
+        {
+          "token": "FF",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-08T14:36:09.005616",
+          "volume_impact": 26.490000000000002
+        },
+        {
+          "token": "ZEC",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T22:18:09.005621",
+          "volume_impact": 24.464999999999996
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T06:00:09.005621",
+          "volume_impact": 48.92999999999999
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T23:44:09.005621",
+          "volume_impact": 48.92999999999999
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-08T21:47:09.005621",
+          "volume_impact": 48.92999999999999
+        },
+        {
+          "token": "ZEC",
+          "type": "ADD_POSITION",
+          "time": "2025-10-09T05:45:09.005621",
+          "volume_impact": 48.92999999999999
+        },
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T11:40:09.005625",
+          "volume_impact": 51.06
+        },
+        {
+          "token": "EDEN",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T14:18:09.005625",
+          "volume_impact": 51.06
+        },
+        {
+          "token": "EDEN",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-08T00:18:09.005625",
+          "volume_impact": 25.53
+        },
+        {
+          "token": "EDEN",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-08T05:34:09.005625",
+          "volume_impact": 51.06
+        }
+      ]
+    },
+    {
+      "wallet": "0x9d1cA39386cb3D35c66674aA0Ce41e3403731241",
+      "wallet_index": 14,
+      "collateral": 100.72,
+      "total_margin_used": 91.62,
+      "positions": [
+        {
+          "token": "APEX",
+          "side": "SHORT",
+          "margin": 22.98,
+          "leverage": 3,
+          "notional_value": 68.94,
+          "entry_time": "2025-10-03T22:45:09.005656"
+        },
+        {
+          "token": "FF",
+          "side": "SHORT",
+          "margin": 21.91,
+          "leverage": 3,
+          "notional_value": 65.73,
+          "entry_time": "2025-10-04T00:38:09.005659"
+        },
+        {
+          "token": "0G",
+          "side": "SHORT",
+          "margin": 23.45,
+          "leverage": 3,
+          "notional_value": 70.35,
+          "entry_time": "2025-10-04T02:34:09.005663"
+        },
+        {
+          "token": "2Z",
+          "side": "LONG",
+          "margin": 23.28,
+          "leverage": 3,
+          "notional_value": 69.84,
+          "entry_time": "2025-10-04T06:10:09.005667"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T09:41:09.005656",
+          "volume_impact": 34.47
+        },
+        {
+          "token": "APEX",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T22:20:09.005656",
+          "volume_impact": 68.94
+        },
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T13:53:09.005656",
+          "volume_impact": 34.47
+        },
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-08T21:54:09.005656",
+          "volume_impact": 34.47
+        },
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-09T09:12:09.005656",
+          "volume_impact": 34.47
+        },
+        {
+          "token": "FF",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T20:58:09.005659",
+          "volume_impact": 65.73
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T01:19:09.005659",
+          "volume_impact": 65.73
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T17:19:09.005659",
+          "volume_impact": 65.73
+        },
+        {
+          "token": "0G",
+          "type": "ADD_POSITION",
+          "time": "2025-10-05T06:15:09.005663",
+          "volume_impact": 70.35
+        },
+        {
+          "token": "0G",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T10:23:09.005663",
+          "volume_impact": 70.35
+        },
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T05:08:09.005663",
+          "volume_impact": 35.175
+        },
+        {
+          "token": "2Z",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T04:55:09.005667",
+          "volume_impact": 69.84
+        },
+        {
+          "token": "2Z",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T19:27:09.005667",
+          "volume_impact": 69.84
+        },
+        {
+          "token": "2Z",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T03:26:09.005667",
+          "volume_impact": 69.84
+        }
+      ]
+    },
+    {
+      "wallet": "0xFD930dB05F90885DEd7Db693057E5B899b528b2b",
+      "wallet_index": 15,
+      "collateral": 100.71,
+      "total_margin_used": 89.76,
+      "positions": [
+        {
+          "token": "EDEN",
+          "side": "LONG",
+          "margin": 23.02,
+          "leverage": 3,
+          "notional_value": 69.06,
+          "entry_time": "2025-10-03T23:22:09.005700"
+        },
+        {
+          "token": "2Z",
+          "side": "LONG",
+          "margin": 21.69,
+          "leverage": 3,
+          "notional_value": 65.07000000000001,
+          "entry_time": "2025-10-04T00:41:09.005704"
+        },
+        {
+          "token": "FF",
+          "side": "LONG",
+          "margin": 22.5,
+          "leverage": 3,
+          "notional_value": 67.5,
+          "entry_time": "2025-10-04T03:34:09.005708"
+        },
+        {
+          "token": "ZEC",
+          "side": "SHORT",
+          "margin": 22.55,
+          "leverage": 3,
+          "notional_value": 67.65,
+          "entry_time": "2025-10-04T06:05:09.005711"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "EDEN",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T12:57:09.005700",
+          "volume_impact": 69.06
+        },
+        {
+          "token": "EDEN",
+          "type": "ADD_POSITION",
+          "time": "2025-10-06T08:17:09.005700",
+          "volume_impact": 69.06
+        },
+        {
+          "token": "EDEN",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T18:06:09.005700",
+          "volume_impact": 69.06
+        },
+        {
+          "token": "EDEN",
+          "type": "ADD_POSITION",
+          "time": "2025-10-08T09:21:09.005700",
+          "volume_impact": 69.06
+        },
+        {
+          "token": "2Z",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T13:04:09.005704",
+          "volume_impact": 65.07000000000001
+        },
+        {
+          "token": "2Z",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T17:18:09.005704",
+          "volume_impact": 65.07000000000001
+        },
+        {
+          "token": "2Z",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T22:38:09.005704",
+          "volume_impact": 65.07000000000001
+        },
+        {
+          "token": "FF",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T22:59:09.005708",
+          "volume_impact": 67.5
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T06:00:09.005708",
+          "volume_impact": 67.5
+        },
+        {
+          "token": "FF",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T13:05:09.005708",
+          "volume_impact": 67.5
+        },
+        {
+          "token": "FF",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-08T04:19:09.005708",
+          "volume_impact": 67.5
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T03:04:09.005711",
+          "volume_impact": 67.65
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T15:16:09.005711",
+          "volume_impact": 67.65
+        },
+        {
+          "token": "ZEC",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-07T06:35:09.005711",
+          "volume_impact": 33.825
+        }
+      ]
+    },
+    {
+      "wallet": "0x06d9681C02E2b5182C3489477f4b09D38f3959B2",
+      "wallet_index": 16,
+      "collateral": 76.54,
+      "total_margin_used": 67.9,
+      "positions": [
+        {
+          "token": "APEX",
+          "side": "SHORT",
+          "margin": 23.53,
+          "leverage": 3,
+          "notional_value": 70.59,
+          "entry_time": "2025-10-03T23:23:09.005746"
+        },
+        {
+          "token": "0G",
+          "side": "SHORT",
+          "margin": 22.43,
+          "leverage": 3,
+          "notional_value": 67.28999999999999,
+          "entry_time": "2025-10-04T01:45:09.005749"
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "margin": 21.94,
+          "leverage": 3,
+          "notional_value": 65.82000000000001,
+          "entry_time": "2025-10-04T03:42:09.005754"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "APEX",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-05T05:13:09.005746",
+          "volume_impact": 35.295
+        },
+        {
+          "token": "APEX",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T20:00:09.005746",
+          "volume_impact": 70.59
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T17:05:09.005746",
+          "volume_impact": 70.59
+        },
+        {
+          "token": "APEX",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-08T03:46:09.005746",
+          "volume_impact": 70.59
+        },
+        {
+          "token": "0G",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T00:36:09.005749",
+          "volume_impact": 67.28999999999999
+        },
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-06T09:17:09.005749",
+          "volume_impact": 33.644999999999996
+        },
+        {
+          "token": "0G",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T08:56:09.005749",
+          "volume_impact": 67.28999999999999
+        },
+        {
+          "token": "0G",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-08T17:59:09.005749",
+          "volume_impact": 67.28999999999999
+        },
+        {
+          "token": "0G",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-09T23:07:09.005749",
+          "volume_impact": 33.644999999999996
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-05T09:32:09.005754",
+          "volume_impact": 65.82000000000001
+        },
+        {
+          "token": "ZEC",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T07:27:09.005754",
+          "volume_impact": 65.82000000000001
+        },
+        {
+          "token": "ZEC",
+          "type": "ADD_POSITION",
+          "time": "2025-10-07T18:20:09.005754",
+          "volume_impact": 65.82000000000001
+        }
+      ]
+    },
+    {
+      "wallet": "0x4007Fb7b726111153C07db0B3f1f561F8bad9853",
+      "wallet_index": 17,
+      "collateral": 10.0,
+      "total_margin_used": 9.0,
+      "positions": [
+        {
+          "token": "EDEN",
+          "side": "LONG",
+          "margin": 4.53,
+          "leverage": 3,
+          "notional_value": 13.59,
+          "entry_time": "2025-10-03T23:16:09.005784"
+        },
+        {
+          "token": "ZEC",
+          "side": "LONG",
+          "margin": 4.47,
+          "leverage": 3,
+          "notional_value": 13.41,
+          "entry_time": "2025-10-04T00:42:09.005788"
+        }
+      ],
+      "rebalancing": [
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-05T12:28:09.005784",
+          "volume_impact": 13.59
+        },
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-06T13:33:09.005784",
+          "volume_impact": 13.59
+        },
+        {
+          "token": "EDEN",
+          "type": "FLIP_SIDE",
+          "time": "2025-10-07T07:15:09.005784",
+          "volume_impact": 13.59
+        },
+        {
+          "token": "EDEN",
+          "type": "PARTIAL_CLOSE",
+          "time": "2025-10-08T08:35:09.005784",
+          "volume_impact": 6.795
+        },
+        {
+          "token": "ZEC",
+          "type": "ADD_POSITION",
+          "time": "2025-10-05T19:25:09.005788",
+          "volume_impact": 13.41
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-06T09:11:09.005788",
+          "volume_impact": 13.41
+        },
+        {
+          "token": "ZEC",
+          "type": "ADJUST_SIZE",
+          "time": "2025-10-07T07:13:09.005788",
+          "volume_impact": 13.41
+        }
+      ]
+    }
+  ]
+}

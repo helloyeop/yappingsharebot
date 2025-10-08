@@ -102,7 +102,7 @@ async function checkPoints() {
     }
     
     if (addresses.length > 20) {
-        resultsDiv.innerHTML = '<div class="error">최대 20개의 주소만 조회할 수 있습니다.</div>';
+        resultsDiv.innerHTML = '<div class="error">최대 100개의 주소만 조회할 수 있습니다.</div>';
         return;
     }
     

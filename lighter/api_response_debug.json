@@ -1,0 +1,693 @@
+{
+  "accounts": [
+    {
+      "code": 0,
+      "account_type": 0,
+      "index": 149396,
+      "l1_address": "0x8b49af69dF8d44C735812D30A3A5c66BA6fc05Fc",
+      "cancel_all_time": 0,
+      "total_order_count": 0,
+      "total_isolated_order_count": 0,
+      "pending_order_count": 0,
+      "available_balance": "0.000000",
+      "status": 0,
+      "collateral": "197.251703",
+      "account_index": 149396,
+      "name": "",
+      "description": "",
+      "can_invite": false,
+      "referral_points_percentage": "",
+      "positions": [
+        {
+          "market_id": 86,
+          "symbol": "APEX",
+          "initial_margin_fraction": "33.33",
+          "open_order_count": 0,
+          "pending_order_count": 0,
+          "position_tied_order_count": 0,
+          "sign": -1,
+          "position": "72.7",
+          "avg_entry_price": "1.71985",
+          "position_value": "154.119638",
+          "unrealized_pnl": "-29.086543",
+          "realized_pnl": "0.000000",
+          "liquidation_price": "2.7857887522106504",
+          "margin_mode": 0,
+          "allocated_margin": "0.000000",
+          "leverage": "3.0x",
+          "current_price": 2.12781,
+          "liquidation_percent": 30.92
+        },
+        {
+          "market_id": 88,
+          "symbol": "2Z",
+          "initial_margin_fraction": "33.33",
+          "open_order_count": 0,
+          "pending_order_count": 0,
+          "position_tied_order_count": 0,
+          "sign": 1,
+          "position": "237.4",
+          "avg_entry_price": "0.51873",
+          "position_value": "123.241462",
+          "unrealized_pnl": "0.094960",
+          "realized_pnl": "0.000000",
+          "liquidation_price": "0.23366207245155857",
+          "margin_mode": 0,
+          "allocated_margin": "0.000000",
+          "leverage": "3.0x",
+          "current_price": 0.5192,
+          "liquidation_percent": 55.0
+        },
+        {
+          "market_id": 89,
+          "symbol": "EDEN",
+          "initial_margin_fraction": "33.33",
+          "open_order_count": 0,
+          "pending_order_count": 0,
+          "position_tied_order_count": 0,
+          "sign": -1,
+          "position": "383.1",
+          "avg_entry_price": "0.33686",
+          "position_value": "134.510241",
+          "unrealized_pnl": "-5.459175",
+          "realized_pnl": "0.000000",
+          "liquidation_price": "0.46904280431567036",
+          "margin_mode": 0,
+          "allocated_margin": "0.000000",
+          "leverage": "3.0x",
+          "current_price": 0.3521,
+          "liquidation_percent": 33.21
+        },
+        {
+          "market_id": 90,
+          "symbol": "ZEC",
+          "initial_margin_fraction": "33.33",
+          "open_order_count": 0,
+          "pending_order_count": 0,
+          "position_tied_order_count": 0,
+          "sign": 1,
+          "position": "1.416",
+          "avg_entry_price": "146.292",
+          "position_value": "191.601792",
+          "unrealized_pnl": "-15.547962",
+          "realized_pnl": "0.000000",
+          "liquidation_price": "91.80269979455574",
+          "margin_mode": 0,
+          "allocated_margin": "0.000000",
+          "leverage": "3.0x",
+          "current_price": 135.061,
+          "liquidation_percent": 32.03
+        }
+      ],
+      "total_asset_value": "147.252981",
+      "cross_asset_value": "147.252981",
+      "shares": []
+    }
+  ],
+  "position_summary": {
+    "APEX": {
+      "net_position": -72.7,
+      "total_value": 154.119638,
+      "long_count": 0,
+      "short_count": 1,
+      "accounts": [
+        "0x8b49af..."
+      ]
+    },
+    "2Z": {
+      "net_position": 237.4,
+      "total_value": 123.241462,
+      "long_count": 1,
+      "short_count": 0,
+      "accounts": [
+        "0x8b49af..."
+      ]
+    },
+    "EDEN": {
+      "net_position": -383.1,
+      "total_value": 134.510241,
+      "long_count": 0,
+      "short_count": 1,
+      "accounts": [
+        "0x8b49af..."
+      ]
+    },
+    "ZEC": {
+      "net_position": 1.416,
+      "total_value": 191.601792,
+      "long_count": 1,
+      "short_count": 0,
+      "accounts": [
+        "0x8b49af..."
+      ]
+    }
+  },
+  "market_prices": {
+    "AVAX": {
+      "last_price": 31.2479,
+      "daily_change": 3.5456410154450775,
+      "daily_high": 31.5831,
+      "daily_low": 29.99
+    },
+    "TAO": {
+      "last_price": 321.151,
+      "daily_change": -1.451147661715969,
+      "daily_high": 330.779,
+      "daily_low": 317.708
+    },
+    "ASTER": {
+      "last_price": 2.24078,
+      "daily_change": 18.280875505485106,
+      "daily_high": 2.28036,
+      "daily_low": 1.8602
+    },
+    "BNB": {
+      "last_price": 1178.2768,
+      "daily_change": 8.279852915987593,
+      "daily_high": 1193.9277,
+      "daily_low": 1085.4588
+    },
+    "DOT": {
+      "last_price": 4.28967,
+      "daily_change": 1.9861487876028558,
+      "daily_high": 4.38561,
+      "daily_low": 4.18059
+    },
+    "ENA": {
+      "last_price": 0.61142,
+      "daily_change": 0.5608460387164684,
+      "daily_high": 0.63709,
+      "daily_low": 0.60234
+    },
+    "ZORA": {
+      "last_price": 0.054295,
+      "daily_change": -4.312502202953721,
+      "daily_high": 0.058126,
+      "daily_low": 0.053429
+    },
+    "TIA": {
+      "last_price": 1.47215,
+      "daily_change": -0.09365265722448814,
+      "daily_high": 1.53768,
+      "daily_low": 1.45973
+    },
+    "XPL": {
+      "last_price": 0.90854,
+      "daily_change": -2.535932861016731,
+      "daily_high": 0.93625,
+      "daily_low": 0.83103
+    },
+    "UNI": {
+      "last_price": 8.0849,
+      "daily_change": -1.6267977514418515,
+      "daily_high": 8.4997,
+      "daily_low": 8.0443
+    },
+    "GRASS": {
+      "last_price": 0.90479,
+      "daily_change": 9.43539998548586,
+      "daily_high": 0.91879,
+      "daily_low": 0.80955
+    },
+    "MKR": {
+      "last_price": 0.0,
+      "daily_change": -3.3879905652334537,
+      "daily_high": 1763.95,
+      "daily_low": 1688.84
+    },
+    "HBAR": {
+      "last_price": 0.22365,
+      "daily_change": 0.017873899638053532,
+      "daily_high": 0.23003,
+      "daily_low": 0.22014
+    },
+    "SKY": {
+      "last_price": 0.068802,
+      "daily_change": 0.33687710548190924,
+      "daily_high": 0.070604,
+      "daily_low": 0.068069
+    },
+    "PYTH": {
+      "last_price": 0.15757,
+      "daily_change": 0.1971257789647717,
+      "daily_high": 0.16463,
+      "daily_low": 0.15472
+    },
+    "1000TOSHI": {
+      "last_price": 0.8208,
+      "daily_change": 4.334562094826491,
+      "daily_high": 0.8259,
+      "daily_low": 0.7811
+    },
+    "RESOLV": {
+      "last_price": 0.108083,
+      "daily_change": -0.6562680956276368,
+      "daily_high": 0.115591,
+      "daily_low": 0.10712
+    },
+    "APT": {
+      "last_price": 5.4644,
+      "daily_change": 6.406511664135218,
+      "daily_high": 5.5015,
+      "daily_low": 5.095
+    },
+    "SUI": {
+      "last_price": 3.55001,
+      "daily_change": -1.0838945529422583,
+      "daily_high": 3.67,
+      "daily_low": 3.52563
+    },
+    "DOGE": {
+      "last_price": 0.25429,
+      "daily_change": -0.5086270980867796,
+      "daily_high": 0.265889,
+      "daily_low": 0.25116
+    },
+    "2Z": {
+      "last_price": 0.5192,
+      "daily_change": -2.9695939000915734,
+      "daily_high": 0.56236,
+      "daily_low": 0.49998
+    },
+    "ETHFI": {
+      "last_price": 1.74639,
+      "daily_change": 0.5266975202044623,
+      "daily_high": 1.8231,
+      "daily_low": 1.72294
+    },
+    "VIRTUAL": {
+      "last_price": 1.12848,
+      "daily_change": -1.2176227032799656,
+      "daily_high": 1.17235,
+      "daily_low": 1.11132
+    },
+    "ETH": {
+      "last_price": 4506.93,
+      "daily_change": 0.9370681681257965,
+      "daily_high": 4595.0,
+      "daily_low": 4428.03
+    },
+    "PUMP": {
+      "last_price": 0.006769,
+      "daily_change": -1.4408383059234464,
+      "daily_high": 0.007548,
+      "daily_low": 0.006744
+    },
+    "DOLO": {
+      "last_price": 0.11262,
+      "daily_change": 6.045197740112994,
+      "daily_high": 0.12059,
+      "daily_low": 0.10512
+    },
+    "LINK": {
+      "last_price": 22.24063,
+      "daily_change": -0.7921681560801883,
+      "daily_high": 23.14598,
+      "daily_low": 22.11363
+    },
+    "TRUMP": {
+      "last_price": 7.8539,
+      "daily_change": 0.9693385614192968,
+      "daily_high": 7.9162,
+      "daily_low": 7.674
+    },
+    "ARB": {
+      "last_price": 0.44425,
+      "daily_change": 0.11493216748546446,
+      "daily_high": 0.46049,
+      "daily_low": 0.43757
+    },
+    "DYDX": {
+      "last_price": 0.63216,
+      "daily_change": 1.4572767541888683,
+      "daily_high": 0.64803,
+      "daily_low": 0.61682
+    },
+    "0G": {
+      "last_price": 3.0661,
+      "daily_change": 1.388842961542277,
+      "daily_high": 3.404,
+      "daily_low": 2.8959
+    },
+    "LINEA": {
+      "last_price": 0.028637,
+      "daily_change": 10.388559093362115,
+      "daily_high": 0.028725,
+      "daily_low": 0.025572
+    },
+    "TRX": {
+      "last_price": 0.34026,
+      "daily_change": -1.0354255133500088,
+      "daily_high": 0.34599,
+      "daily_low": 0.33994
+    },
+    "ONDO": {
+      "last_price": 0.93498,
+      "daily_change": -1.147140606662931,
+      "daily_high": 0.98049,
+      "daily_low": 0.9269
+    },
+    "NMR": {
+      "last_price": 17.0031,
+      "daily_change": -0.5166340966802018,
+      "daily_high": 17.8801,
+      "daily_low": 16.7157
+    },
+    "ZEC": {
+      "last_price": 135.061,
+      "daily_change": -12.863870967741935,
+      "daily_high": 157.183,
+      "daily_low": 124.483
+    },
+    "SOL": {
+      "last_price": 229.863,
+      "daily_change": 0.23895279374187867,
+      "daily_high": 237.252,
+      "daily_low": 227.215
+    },
+    "JUP": {
+      "last_price": 0.46323,
+      "daily_change": 0.4074997290560312,
+      "daily_high": 0.4821,
+      "daily_low": 0.4569
+    },
+    "SPX": {
+      "last_price": 1.38871,
+      "daily_change": 11.152821021794985,
+      "daily_high": 1.43294,
+      "daily_low": 1.24
+    },
+    "WLD": {
+      "last_price": 1.31231,
+      "daily_change": -2.378950970400732,
+      "daily_high": 1.40551,
+      "daily_low": 1.30495
+    },
+    "IP": {
+      "last_price": 10.046,
+      "daily_change": 4.116586538461538,
+      "daily_high": 10.4778,
+      "daily_low": 9.2931
+    },
+    "LAUNCHCOIN": {
+      "last_price": 0.117571,
+      "daily_change": 2.0307035433173364,
+      "daily_high": 0.123087,
+      "daily_low": 0.102683
+    },
+    "USELESS": {
+      "last_price": 0.22929,
+      "daily_change": 0.959887279291973,
+      "daily_high": 0.26934,
+      "daily_low": 0.22452
+    },
+    "VVV": {
+      "last_price": 1.9586,
+      "daily_change": -3.1019640825211496,
+      "daily_high": 2.0708,
+      "daily_low": 1.928
+    },
+    "NEAR": {
+      "last_price": 3.00719,
+      "daily_change": 3.102478828813385,
+      "daily_high": 3.08337,
+      "daily_low": 2.88877
+    },
+    "STBL": {
+      "last_price": 0.26063,
+      "daily_change": -5.173731126068764,
+      "daily_high": 0.29854,
+      "daily_low": 0.24326
+    },
+    "PENGU": {
+      "last_price": 0.031274,
+      "daily_change": 1.727222457144716,
+      "daily_high": 0.032431,
+      "daily_low": 0.030422
+    },
+    "FF": {
+      "last_price": 0.19674,
+      "daily_change": 9.622778180197248,
+      "daily_high": 0.20276,
+      "daily_low": 0.17346
+    },
+    "MNT": {
+      "last_price": 1.94354,
+      "daily_change": 0.8415831309798062,
+      "daily_high": 1.98396,
+      "daily_low": 1.90107
+    },
+    "ZK": {
+      "last_price": 0.055465,
+      "daily_change": -0.248188047407514,
+      "daily_high": 0.057761,
+      "daily_low": 0.054755
+    },
+    "EIGEN": {
+      "last_price": 1.835,
+      "daily_change": 5.661985293694254,
+      "daily_high": 1.94931,
+      "daily_low": 1.73292
+    },
+    "AAVE": {
+      "last_price": 286.687,
+      "daily_change": 0.4069696173715086,
+      "daily_high": 299.649,
+      "daily_low": 283.879
+    },
+    "KAITO": {
+      "last_price": 1.41564,
+      "daily_change": 0.8477353356034594,
+      "daily_high": 1.4663,
+      "daily_low": 1.39336
+    },
+    "HYPE": {
+      "last_price": 48.7469,
+      "daily_change": -1.7043953761747586,
+      "daily_high": 50.9378,
+      "daily_low": 48.4827
+    },
+    "XRP": {
+      "last_price": 3.023757,
+      "daily_change": -0.3507776328837224,
+      "daily_high": 3.097839,
+      "daily_low": 3.008439
+    },
+    "WIF": {
+      "last_price": 0.7865,
+      "daily_change": 2.144183690697282,
+      "daily_high": 0.8008,
+      "daily_low": 0.75871
+    },
+    "ADA": {
+      "last_price": 0.85686,
+      "daily_change": -0.0583185592983111,
+      "daily_high": 0.89299,
+      "daily_low": 0.84853
+    },
+    "XMR": {
+      "last_price": 321.983,
+      "daily_change": -4.052934585677505,
+      "daily_high": 336.997,
+      "daily_low": 320.653
+    },
+    "PENDLE": {
+      "last_price": 4.8331,
+      "daily_change": -1.5641866433124911,
+      "daily_high": 5.0187,
+      "daily_low": 4.7836
+    },
+    "APEX": {
+      "last_price": 2.12781,
+      "daily_change": 20.068042588783147,
+      "daily_high": 2.22956,
+      "daily_low": 1.67205
+    },
+    "1000BONK": {
+      "last_price": 0.020754,
+      "daily_change": 3.925888833249875,
+      "daily_high": 0.021195,
+      "daily_low": 0.01968
+    },
+    "BTC": {
+      "last_price": 122582.6,
+      "daily_change": 2.4034967243271965,
+      "daily_high": 124138.1,
+      "daily_low": 119313.8
+    },
+    "SYRUP": {
+      "last_price": 0.42612,
+      "daily_change": 5.9513747327599065,
+      "daily_high": 0.43508,
+      "daily_low": 0.39744
+    },
+    "AI16Z": {
+      "last_price": 0.10277,
+      "daily_change": 5.981231308652161,
+      "daily_high": 0.10454,
+      "daily_low": 0.09486
+    },
+    "LTC": {
+      "last_price": 119.094,
+      "daily_change": 2.0829047521086195,
+      "daily_high": 125.077,
+      "daily_low": 115.886
+    },
+    "TON": {
+      "last_price": 2.82888,
+      "daily_change": 1.1303918834859827,
+      "daily_high": 2.88115,
+      "daily_low": 2.78336
+    },
+    "GMX": {
+      "last_price": 15.6326,
+      "daily_change": 2.5249875390225345,
+      "daily_high": 15.7585,
+      "daily_low": 15.0876
+    },
+    "EDEN": {
+      "last_price": 0.3521,
+      "daily_change": -3.868730717776504,
+      "daily_high": 0.37314,
+      "daily_low": 0.32328
+    },
+    "CRV": {
+      "last_price": 0.76775,
+      "daily_change": 2.0903421406060927,
+      "daily_high": 0.80081,
+      "daily_low": 0.74129
+    },
+    "1000FLOKI": {
+      "last_price": 0.114077,
+      "daily_change": 32.66719430154333,
+      "daily_high": 0.113985,
+      "daily_low": 0.085151
+    },
+    "SEI": {
+      "last_price": 0.29548,
+      "daily_change": 1.0188034188034187,
+      "daily_high": 0.307,
+      "daily_low": 0.28946
+    },
+    "MYX": {
+      "last_price": 6.2815,
+      "daily_change": -28.497438816163914,
+      "daily_high": 9.059,
+      "daily_low": 5.3182
+    },
+    "FARTCOIN": {
+      "last_price": 0.64924,
+      "daily_change": -0.9776557614580951,
+      "daily_high": 0.7,
+      "daily_low": 0.6426
+    },
+    "YZY": {
+      "last_price": 0.41723,
+      "daily_change": 0.15843675732770002,
+      "daily_high": 0.41992,
+      "daily_low": 0.40701
+    },
+    "WLFI": {
+      "last_price": 0.20235,
+      "daily_change": -1.9622093023255813,
+      "daily_high": 0.2099,
+      "daily_low": 0.19834
+    },
+    "OP": {
+      "last_price": 0.73787,
+      "daily_change": 0.7647452442405124,
+      "daily_high": 0.76062,
+      "daily_low": 0.72362
+    },
+    "PROVE": {
+      "last_price": 0.75629,
+      "daily_change": 1.5277013330469453,
+      "daily_high": 0.81695,
+      "daily_low": 0.73685
+    },
+    "POPCAT": {
+      "last_price": 0.24052,
+      "daily_change": 3.409432907691646,
+      "daily_high": 0.24633,
+      "daily_low": 0.23016
+    },
+    "BCH": {
+      "last_price": 594.113,
+      "daily_change": -0.969117909345637,
+      "daily_high": 616.031,
+      "daily_low": 591.591
+    },
+    "LDO": {
+      "last_price": 1.21687,
+      "daily_change": -2.1722178006093786,
+      "daily_high": 1.28463,
+      "daily_low": 1.20909
+    },
+    "AVNT": {
+      "last_price": 1.20353,
+      "daily_change": 0.3552160897879543,
+      "daily_high": 1.30179,
+      "daily_low": 1.15013
+    },
+    "CRO": {
+      "last_price": 0.21526,
+      "daily_change": 1.2654654937197158,
+      "daily_high": 0.22084,
+      "daily_low": 0.20992
+    },
+    "MORPHO": {
+      "last_price": 1.85787,
+      "daily_change": -4.27692593050575,
+      "daily_high": 2.14,
+      "daily_low": 1.82872
+    },
+    "AERO": {
+      "last_price": 1.14435,
+      "daily_change": -1.4425975368185342,
+      "daily_high": 1.20687,
+      "daily_low": 1.13626
+    },
+    "1000SHIB": {
+      "last_price": 0.012601,
+      "daily_change": 1.547264082520751,
+      "daily_high": 0.012881,
+      "daily_low": 0.012335
+    },
+    "S": {
+      "last_price": 0.281,
+      "daily_change": 1.8343967517401392,
+      "daily_high": 0.28914,
+      "daily_low": 0.27335
+    },
+    "1000PEPE": {
+      "last_price": 0.010031,
+      "daily_change": 1.1598587997982854,
+      "daily_high": 0.010409,
+      "daily_low": 0.009856
+    },
+    "PAXG": {
+      "last_price": 3892.71,
+      "daily_change": 0.5740875186345915,
+      "daily_high": 3895.91,
+      "daily_low": 3862.21
+    },
+    "ZRO": {
+      "last_price": 2.3452,
+      "daily_change": 3.2000281630641414,
+      "daily_high": 2.51127,
+      "daily_low": 2.25254
+    },
+    "BERA": {
+      "last_price": 2.96032,
+      "daily_change": 7.460822785039876,
+      "daily_high": 3.06222,
+      "daily_low": 2.73475
+    },
+    "POL": {
+      "last_price": 0.238735,
+      "daily_change": 0.22712578822304508,
+      "daily_high": 0.245345,
+      "daily_low": 0.236443
+    }
+  }
+}
