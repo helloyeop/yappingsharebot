@@ -27,7 +27,7 @@ logging.basicConfig(
 )
 
 # 접근 코드 설정 (환경변수 또는 기본값)
-ACCESS_CODE = os.getenv("LIGHTER_ACCESS_CODE", "lighter2024")  # 원하는 코드로 변경 가능
+ACCESS_CODE = os.getenv("LIGHTER_ACCESS_CODE", "1point500$")  # 원하는 코드로 변경 가능
 
 # Rate limiting 설정
 limiter = Limiter(key_func=get_remote_address)
