@@ -178,44 +178,51 @@ async def fetch_accounts(wallet_request: WalletRequest, request: Request):
                 data = response.json()
                 
                 if data.get("accounts") and len(data["accounts"]) > 0:
-                    account = data["accounts"][0]
-                    # 홀딩 중인 포지션만 필터링 (position이 0이 아닌 것)
-                    filtered_positions = []
-                    for pos in account.get("positions", []):
-                        if float(pos.get("position", "0")) != 0:
-                            # 레버리지 계산 (100 / initial_margin_fraction)
-                            imf = float(pos.get("initial_margin_fraction", "100"))
-                            leverage = round(100 / imf, 2) if imf > 0 else 0
-                            pos["leverage"] = f"{leverage}x"
-                            filtered_positions.append(pos)
-                            
-                            # 포지션 합계 계산
-                            symbol = pos.get("symbol", "")
-                            position_size = float(pos.get("position", "0"))
-                            sign = pos.get("sign", 1)
-                            
-                            # 롱은 양수, 숏은 음수로 계산
-                            net_position = position_size * sign
-                            
-                            if symbol not in position_summary:
-                                position_summary[symbol] = {
-                                    "net_position": 0,
-                                    "total_value": 0,
-                                    "long_count": 0,
-                                    "short_count": 0,
-                                    "accounts": []
-                                }
-                            
-                            position_summary[symbol]["net_position"] += net_position
-                            position_summary[symbol]["total_value"] += float(pos.get("position_value", "0"))
-                            if sign == 1:
-                                position_summary[symbol]["long_count"] += 1
-                            else:
-                                position_summary[symbol]["short_count"] += 1
-                            position_summary[symbol]["accounts"].append(address[:8] + "...")
-                    
-                    account["positions"] = filtered_positions
-                    accounts_data.append(account)
+                    # 모든 계정 처리 (메인 계정과 서브 계정 모두 포함)
+                    for account in data["accounts"]:
+                        # account_type 정보 추가
+                        account_type = account.get("account_type", 0)
+                        account["account_type_label"] = "Main" if account_type == 0 else f"Sub-{account_type}"
+
+                        # 홀딩 중인 포지션만 필터링 (position이 0이 아닌 것)
+                        filtered_positions = []
+                        for pos in account.get("positions", []):
+                            if float(pos.get("position", "0")) != 0:
+                                # 레버리지 계산 (100 / initial_margin_fraction)
+                                imf = float(pos.get("initial_margin_fraction", "100"))
+                                leverage = round(100 / imf, 2) if imf > 0 else 0
+                                pos["leverage"] = f"{leverage}x"
+                                filtered_positions.append(pos)
+
+                                # 포지션 합계 계산
+                                symbol = pos.get("symbol", "")
+                                position_size = float(pos.get("position", "0"))
+                                sign = pos.get("sign", 1)
+
+                                # 롱은 양수, 숏은 음수로 계산
+                                net_position = position_size * sign
+
+                                if symbol not in position_summary:
+                                    position_summary[symbol] = {
+                                        "net_position": 0,
+                                        "total_value": 0,
+                                        "long_count": 0,
+                                        "short_count": 0,
+                                        "accounts": []
+                                    }
+
+                                position_summary[symbol]["net_position"] += net_position
+                                position_summary[symbol]["total_value"] += float(pos.get("position_value", "0"))
+                                if sign == 1:
+                                    position_summary[symbol]["long_count"] += 1
+                                else:
+                                    position_summary[symbol]["short_count"] += 1
+                                # 계정 타입 정보를 포함하여 식별
+                                account_label = f"{address[:8]}...({account['account_type_label']})"
+                                position_summary[symbol]["accounts"].append(account_label)
+
+                        account["positions"] = filtered_positions
+                        accounts_data.append(account)
                     
             except httpx.HTTPStatusError as e:
                 logging.error(f"HTTP error for {address[:8]}...: {e.response.status_code}")

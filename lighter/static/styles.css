@@ -158,6 +158,40 @@ h1 {
     font-family: monospace;
     color: #9ca3af;
     font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.account-type-badge {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.sub-account .account-type-badge {
+    background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+}
+
+.account-type-mini {
+    color: #8b5cf6;
+    font-size: 0.75rem;
+    margin-left: 4px;
+    font-weight: 600;
+}
+
+.account-type-badge-small {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    color: white;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-left: 8px;
+    display: inline-block;
 }
 
 .total-balance {

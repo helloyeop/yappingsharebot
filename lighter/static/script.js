@@ -213,14 +213,30 @@ function displayResults(accounts, positionSummary, addresses, marketPrices) {
         html += createTableView(accounts);
     } else {
         // 기존 카드 뷰
+        // 지갑 주소별로 인덱스 매핑 생성
+        const walletIndexMap = {};
+        let walletIndex = 1;
+
+        accounts.forEach((account) => {
+            if (!walletIndexMap[account.l1_address]) {
+                walletIndexMap[account.l1_address] = walletIndex++;
+            }
+        });
+
         accounts.forEach((account, index) => {
             const totalBalance = parseFloat(account.total_asset_value).toFixed(2);
-            
+            const accountTypeLabel = account.account_type_label || (account.account_type === 0 ? 'Main' : `Sub-${account.account_type || 1}`);
+            const typeClass = account.account_type === 0 ? 'main-account' : 'sub-account';
+            const displayIndex = walletIndexMap[account.l1_address];
+
             html += `
-                <div class="account-card">
+                <div class="account-card ${typeClass}">
                     <div class="account-header">
                         <div>
-                            <div class="account-address">${index + 1}_${account.l1_address}</div>
+                            <div class="account-address">
+                                ${displayIndex}_${account.l1_address}
+                                <span class="account-type-badge">${accountTypeLabel}</span>
+                            </div>
                             <div style="margin-top: 8px; color: #9ca3af;">
                                 Cross Asset Value: $${parseFloat(account.cross_asset_value).toFixed(2)}
                             </div>
@@ -502,17 +518,33 @@ function createTableView(accounts) {
     let allPositions = [];
     const colors = ['#8b5cf6', '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#6366f1', '#14b8a6', '#f97316'];
     const accountColors = {};
-    const accountIndexes = {}; // 계정별 인덱스 저장
+    const accountIndexes = {}; // 지갑 주소별 인덱스 저장
+
+    // 지갑 주소별로 인덱스 매핑 생성 (동일 주소는 같은 인덱스)
+    let walletIndex = 1;
+    const processedAddresses = new Set();
+
+    accounts.forEach((account) => {
+        if (!processedAddresses.has(account.l1_address)) {
+            accountColors[account.l1_address] = colors[(walletIndex - 1) % colors.length];
+            accountIndexes[account.l1_address] = walletIndex;
+            processedAddresses.add(account.l1_address);
+            walletIndex++;
+        }
+    });
 
     accounts.forEach((account, index) => {
-        accountColors[account.l1_address] = colors[index % colors.length];
-        accountIndexes[account.l1_address] = index + 1; // 1번부터 시작하는 인덱스
+        const accountTypeLabel = account.account_type_label || (account.account_type === 0 ? 'Main' : `Sub-${account.account_type || 1}`);
+        const displayIndex = accountIndexes[account.l1_address];
+
         account.positions.forEach(position => {
             allPositions.push({
                 ...position,
                 account_address: account.l1_address,
-                account_index: index + 1,
-                account_balance: account.total_asset_value
+                account_index: displayIndex,  // 지갑 주소 기준 인덱스 사용
+                account_balance: account.total_asset_value,
+                account_type: account.account_type,
+                account_type_label: accountTypeLabel
             });
         });
     });
@@ -562,6 +594,7 @@ function createTableView(accounts) {
                     <div class="account-cell">
                         <div class="account-indicator" style="background-color: ${accountColor}"></div>
                         <span class="account-short">${position.account_index}_${position.account_address.substring(2, 6)}</span>
+                        <span class="account-type-mini">(${position.account_type_label})</span>
                     </div>
                 </td>
                 <td class="symbol-cell">${position.symbol}</td>
@@ -589,15 +622,23 @@ function createTableView(accounts) {
         <div class="account-legend">
             <h3>계정 목록</h3>
             <div class="legend-items">
-                ${accounts.map((account, index) => `
-                    <div class="legend-item">
-                        <div class="account-indicator" style="background-color: ${colors[index % colors.length]}"></div>
-                        <div>
-                            <div class="legend-address">${index + 1}_${account.l1_address}</div>
-                            <div class="legend-balance">Balance: $${parseFloat(account.total_asset_value).toFixed(2)}</div>
+                ${accounts.map((account, index) => {
+                    const accountTypeLabel = account.account_type_label || (account.account_type === 0 ? 'Main' : `Sub-${account.account_type || 1}`);
+                    const displayIndex = accountIndexes[account.l1_address];
+                    const colorIndex = displayIndex - 1;
+                    return `
+                        <div class="legend-item">
+                            <div class="account-indicator" style="background-color: ${colors[colorIndex % colors.length]}"></div>
+                            <div>
+                                <div class="legend-address">
+                                    ${displayIndex}_${account.l1_address}
+                                    <span class="account-type-badge-small">${accountTypeLabel}</span>
+                                </div>
+                                <div class="legend-balance">Balance: $${parseFloat(account.total_asset_value).toFixed(2)}</div>
+                            </div>
                         </div>
-                    </div>
-                `).join('')}
+                    `;
+                }).join('')}
             </div>
         </div>
     `;
